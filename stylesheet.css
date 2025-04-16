@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+}
+
+:root {
+    --bgColor: #0A212E;
+    --primaryColor: #051721;
+    --textColor: #FFFFFF;
+    --accentColor1: #00EBB2;
+    --accentColor2: #E46D99;
+    --ff: "Inter", sans-serif;
+    --h1: bold max(64px, 6vw) / max(74px, 8vw) var(--ff);
+    --h2: bold 36px/36px var(--ff);
+    --h3: bold 24px/30px var(--ff);
+}
+
+.lightMode {
+    --bgColor: #E0F1FA;
+    --primaryColor: #D1E8F5;
+    --textColor: #000000;
+    --accentColor1: #00EBB2;
+    --accentColor2: #931B47;
+}
+
+h1 {
+    font: var(--h1);
+    margin-top: 8px;
+    color: var(--textColor);
+}
+
+h2 {
+    font: var(--h2);
+    margin-top: 8px;
+    color: var(--textColor);
+}
+
+h3 {
+    font: var(--h3);
+    color: var(--textColor);
+}
+
+body {
+    background-color: var(--bgColor);
+}
+
+header {
+    height: 50px;
+    width: 100vw;
+    background-color: var(--primaryColor);
+}
+
+nav {
+    height: 50px;
+    width: 100vw;
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    font-family: var(--ff);
+}
+
+nav > a {
+    color: var(--textColor);
+    text-decoration: none;
+}
+
+/* classes for top part of page */
+
+.heroSection {
+    font-family: var(--ff);
+    margin-top: 10vh;
+    width: 100vw;
+    height: 60vh;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.mainCard {
+    height: 60vh;
+    width: 40vw;
+    border-radius: 5%;
+    background-color: var(--primaryColor);
+}
+
+.imageContainer {
+    height: 60vh;
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageContainer > img {
+    width: 80%;
+    height: 70%;
+}
