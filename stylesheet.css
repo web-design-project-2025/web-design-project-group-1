@@ -45,24 +45,31 @@ body {
     background-color: var(--bgColor);
 }
 
-header {
-    height: 50px;
-    width: 100vw;
-    background-color: var(--primaryColor);
-}
-
+/* Styling for nav bar */
+/* The classes in the nav are seperated to left and right with justify-content: space-between */
 nav {
-    height: 50px;
+    background-color: var(--primaryColor);
     width: 100vw;
     display: flex; 
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     font-family: var(--ff);
 }
 
-nav > a {
+.navLeft a,
+.navRight a {
     color: var(--textColor);
     text-decoration: none;
+    padding: 20px;
+}
+
+.navRight {
+    display: flex;
+    gap: 10px;
+}
+
+.navRight a:hover {
+    background-color: var(--accentColor2);
 }
 
 /* classes for top part of page */
