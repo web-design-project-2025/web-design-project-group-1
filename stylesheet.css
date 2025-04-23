@@ -79,6 +79,27 @@ nav {
 
 /* classes for top part of page */
 
+.heroSectionCardText {
+    width: 32vw;
+}
+
+.exploreButton {
+    background-color: var(--accentColor2);
+    border: none;
+    color: var(--textColor);
+    padding: 20px 32px;
+    text-align: center;
+    border-radius: 40px;
+    font: var(--ff);
+    font-size: 25px;
+    margin-top: 60px;
+    margin-left: 30px;
+}
+
+.exploreButton:hover {
+    background-color:#931B47;
+}
+
 .heroSection {
     font-family: var(--ff);
     margin-top: 10vh;
@@ -107,3 +128,4 @@ nav {
 .imageContainer > img {
     width: 80%;
     height: 70%;
+}
