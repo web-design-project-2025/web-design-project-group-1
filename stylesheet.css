@@ -82,7 +82,7 @@ nav {
     background-color: var(--accentColor2);
 }
 
-/* classes for top part of page */
+/* Hero section main page */
 
 .heroSectionCardText {
     width: 32vw;
@@ -95,7 +95,7 @@ nav {
     padding: 20px 32px;
     text-align: center;
     border-radius: 40px;
-    font: var(--ff);
+    font-family: var(--ff);
     font-size: 25px;
     margin-top: 60px;
     margin-left: 30px;
@@ -130,4 +130,78 @@ nav {
 .imageContainer > img {
     width: 80%;
     height: 70%;
+}
+
+@media (max-width: 1140px) {
+    h1 {
+        padding-top: 10px;
+        font-size: 60px;
+        line-height: 62px;
+    }
+
+    .heroSectionCardText {
+        font-size: 20px;
+        line-height: 32px;
+    }
+
+    .exploreButton {
+    padding: 15px 25px;
+    border-radius: 40px;
+    font-size: 20px;
+    margin-top: 55px;
+    margin-left: 30px;
+    }
+
+    @media (max-width: 1014px) {
+        h1 {
+            padding-top: 10px;
+            font-size: 45px;
+            line-height: 48px;
+        }
+
+        .heroSectionCardText {
+            font-size: 18px;
+            line-height: 28px;
+            padding-top: 10px;
+        }
+    
+        .exploreButton {
+        padding: 12px 22px;
+        border-radius: 40px;
+        font-size: 17px;
+        margin-top: 70px;
+        margin-left: 30px;
+        }
+    }
+
+    /* Layers the logo image and card vertically */
+    @media (max-width: 900px) {
+        .heroSection {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mainCard, .imageContainer {
+            width: 100%;
+            align-items: center;
+            text-align: center;
+        }
+
+        .heroSectionCardText {
+            width: 100%;
+            padding-left: 0;
+            font-size: 20px;
+        }
+
+        h1 {
+            padding-left: 0;
+        }
+
+        .exploreButton {
+            margin-top: 70px;
+            margin-bottom: 30px;
+            margin-left: 0;
+        }
+    }
+
 }
