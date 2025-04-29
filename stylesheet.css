@@ -1,19 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
-  margin: 0;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
-  --bgColor: #0a212e;
-  --primaryColor: #051721;
-  --textColor: #ffffff;
-  --accentColor1: #00ebb2;
-  --accentColor2: #e46d99;
-  --ff: "Inter", sans-serif;
-  --h1: bold max(68px, 5vw) / max(78px, 6vw) var(--ff);
-  --h2: bold 36px/36px var(--ff);
-  --h3: bold 24px/30px var(--ff);
+    --bgColor: #0A212E;
+    --primaryColor: #051721;
+    --textColor: #FFFFFF;
+    --accentColor1: #00EBB2;
+    --accentColor2: #E46D99;
+    --ff: "Inter", sans-serif;
+    --h1: bold max(40px, 5vw) / max(50px, 6vw) var(--ff);
+    --h2: bold 36px/36px var(--ff);
+    --h3: bold 20px/26px var(--ff);
 }
 
 .lightMode {
@@ -25,29 +26,33 @@
 }
 
 h1 {
-  font: var(--h1);
-  margin-top: 35px;
-  margin-left: 25px;
-  margin-bottom: 25px;
-  color: var(--textColor);
+    font: var(--h1);
+    padding-left: 25px;
+    color: var(--textColor);
 }
 
 h2 {
-  font: var(--h2);
-  margin-top: 8px;
-  color: var(--textColor);
+    font: var(--h2);
+    color: var(--textColor);
 }
 
 h3 {
-  font: var(--h3);
-  margin-top: 15px;
-  margin-left: 25px;
-  line-height: 35px;
-  color: var(--textColor);
+    font: var(--h3);
+    padding-left: 25px;
+    line-height: 35px;
+    color: var(--textColor);
 }
 
 body {
   background-color: var(--bgColor);
+}
+
+.gridContainer {
+    padding-top: 50px;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 10% 40% 40% 10%;
+    grid-template-rows: 50vh 50vh;
 }
 
 /* Styling for nav bar */
@@ -77,166 +82,121 @@ nav {
   background-color: var(--accentColor2);
 }
 
-/* classes for top part of page */
+/* Hero section main page */
+.heroSectionCardText {
+    width: 32vw;
+}
+
+.exploreButton {
+    background-color: var(--accentColor2);
+    border: none;
+    color: var(--textColor);
+    padding: 20px 32px;
+    text-align: center;
+    border-radius: 40px;
+    font-family: var(--ff);
+    font-size: 25px;
+    margin-top: 60px;
+    margin-left: 20px;
+}
+
+.exploreButton:hover {
+    background-color:#931B47;
+}
 
 .heroSection {
-  font-family: var(--ff);
-  margin-top: 10vh;
-  width: 100vw;
-  height: 60vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    display: flex;
+    flex-direction: row;
 }
 
 .mainCard {
-  height: 60vh;
-  width: 40vw;
-  border-radius: 5%;
-  background-color: var(--primaryColor);
+    height: 70vh;
+    width: 50%;
+    border-radius: 5%;
+    background-color: var(--primaryColor);
+    display: flex;
+    flex-direction: column;
 }
 
 .imageContainer {
-  height: 60vh;
-  width: 40vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    height: 50vh;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .imageContainer > img {
-  width: 80%;
-  height: 70%;
+    width: 80%;
+    height: 70%;
 }
 
-/*footer section*/
-footer {
-  background-color: var(--primaryColor);
-  color: var(--textColor);
-  font-family: var(--ff);
-  padding: 30px 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  border-top: 1px solid var(--accentColor1);
-  margin-top: 40px;
-}
+@media (max-width: 1140px) {
+    /* h1 {
+        padding-top: 10px;
+        font-size: 60px;
+        line-height: 62px;
+    } */
 
-.footerContainer {
-  width: 90%;
-  max-width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
+    .heroSectionCardText {
+        font-size: 20px;
+        line-height: 32px;
+    }
 
-.footerLeft p {
-  font-size: 14px;
-  margin: 3px 0;
-}
+    .exploreButton {
+    padding: 15px 25px;
+    border-radius: 40px;
+    font-size: 20px;
+    margin-top: 55px;
+    margin-left: 30px;
+    }
 
-.footerLeft {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
+    @media (max-width: 1014px) {
+        /* h1 {
+            padding-top: 10px;
+            font-size: 45px;
+            line-height: 48px;
+        } */
 
-.footerRight {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex: 1;
-  padding-left: 30px;
-}
+        .heroSectionCardText {
+            font-size: 18px;
+            line-height: 28px;
+            padding-top: 10px;
+        }
+    }
 
-.footerRight a {
-  color: var(--textColor);
-  /*text-decoration:none;*/
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-}
+    /* Layers the logo image and card vertically */
+    @media (max-width: 900px) {
+        .heroSection {
+            flex-direction: column;
+            align-items: center;
+        }
 
-.footerRight a:hover {
-  color: var(--accentColor1);
-}
+        .mainCard, .imageContainer {
+            width: 100%;
+            padding: 10px;
+            align-items: center;
+            text-align: center;
+            justify-content: space-between;
+        }
 
-.socialIcon {
-  width: 30px;
-  height: 30px;
-  filter: brightness(0) invert(1);
-  transition: filter 0, 3s ease;
-}
+        .heroSectionCardText {
+            width: 100%;
+            padding-left: 0px;
+            font-size: 20px;
+        }
 
-.socialIcon:hover {
-  filter: brightness(0) saturate(100%) invert(50%);
-}
+        h1 {
+            padding-left: 0;
+        }
 
-.footerLinks {
-  margin-top: 10px;
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
+        .exploreButton {
+            margin-top: 70px;
+            margin-bottom: 30px;
+            margin-left: 0;
+        }
+    }
 
-.footerLinks a {
-  color: var(--textColor);
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.footerLinks a:hover {
-  color: var(--accentColor1);
-}
-
-/*footer newsletter*/
-.footerNewsletter input {
-  padding: 8px;
-  border-radius: 5px;
-  border: none;
-  max-width: 200px;
-}
-
-.footerNewsletter button {
-  background-color: var(--accentColor1);
-  color: var(--primaryColor);
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-.footerNewsletter button:hover {
-  background-color: var(--accentColor2);
-  color: var(--textColor);
-}
-
-.footerRightBlock {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 10px;
-}
-
-.footerNewsletter {
-  margin-top: 2;
-  text-align: left;
-}
-
-@media (max-width: 600px) {
-  .footerRightBlock {
-    align-items: center;
-    text-align: center;
-    margin-top: 20px;
-  }
-
-  .footerNewsletter {
-    text-align: center;
-  }
-
-  .footerRight {
-    justify-content: center;
-  }
 }
