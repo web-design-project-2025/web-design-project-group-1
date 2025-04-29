@@ -164,3 +164,47 @@ footer {
 .socialIcon:hover {
   filter: brightness(0) saturate(100%) invert(50%);
 }
+
+/*footer newsletter*/
+.footerNewsletter {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footerNewsletter input {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  max-width: 200px;
+}
+
+.footerNewsletter button {
+  background-color: var(--accentColor1);
+  color: var(--primaryColor);
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.footerNewsletter button:hover {
+  background-color: var(--accentColor2);
+  color: var(--textColor);
+}
+
+@media (max-width: 600px) {
+  .footerContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerRight {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+  }
+}
