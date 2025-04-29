@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
     margin: 0;
@@ -18,11 +18,11 @@
 }
 
 .lightMode {
-    --bgColor: #E0F1FA;
-    --primaryColor: #D1E8F5;
-    --textColor: #000000;
-    --accentColor1: #00EBB2;
-    --accentColor2: #931B47;
+  --bgColor: #e0f1fa;
+  --primaryColor: #d1e8f5;
+  --textColor: #000000;
+  --accentColor1: #00ebb2;
+  --accentColor2: #931b47;
 }
 
 h1 {
@@ -44,7 +44,7 @@ h3 {
 }
 
 body {
-    background-color: var(--bgColor);
+  background-color: var(--bgColor);
 }
 
 .gridContainer {
@@ -58,32 +58,31 @@ body {
 /* Styling for nav bar */
 /* The classes in the nav are seperated to left and right with justify-content: space-between */
 nav {
-    background-color: var(--primaryColor);
-    width: 100vw;
-    display: flex; 
-    justify-content: space-between;
-    align-items: center;
-    font-family: var(--ff);
+  background-color: var(--primaryColor);
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--ff);
 }
 
 .navLeft a,
 .navRight a {
-    color: var(--textColor);
-    text-decoration: none;
-    padding: 20px;
+  color: var(--textColor);
+  text-decoration: none;
+  padding: 20px;
 }
 
 .navRight {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .navRight a:hover {
-    background-color: var(--accentColor2);
+  background-color: var(--accentColor2);
 }
 
 /* Hero section main page */
-
 .heroSectionCardText {
     width: 32vw;
 }
