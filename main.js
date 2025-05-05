@@ -31,15 +31,33 @@ async function getDrinkByIngredient (ingredient) {
     }
 }
 
-//Test the getDrinkByIngredient async function by logging categories in console
-async function testGetDrinkByIngredient() {
-    const vodkaDrinks = await getDrinkByIngredient('Vodka');
-    const rumDrinks = await getDrinkByIngredient('Rum');
-    const tequilaDrinks = await getDrinkByIngredient('Tequila');
+// Function for displaying categories and relating drinks on the "categories page"
+async function displayCategories() {
+    const container = document.querySelector('.drinkCategories');
+    
+    for (const category of alcoholCategories) {
+        const drinks = await getDrinkByIngredient(category);
 
-    console.log('Vodka drinks:', vodkaDrinks);
-    console.log('Rum Drinks:', rumDrinks);
-    console.log('Tequila Drinks', tequilaDrinks);
+        const categoryHeader = document.createElement('h2');
+        categoryHeader.classList.add('categoryTitle');
+        categoryHeader.textContent = category;
+        categoryHeader.style.gridColumn = '2 / 6'; 
+        
+        container.appendChild(categoryHeader);
+
+        const drinkGrid = document.createElement('div');
+        drinkGrid.classList.add('drinkGrid');
+
+        drinks.slice(0,8).forEach(drink => {
+            const drinkCard = document.createElement('div');
+            drinkCard.classList.add('drinkCard');
+            drinkCard.innerHTML = `<img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" />
+            <p>${drink.strDrink}</p>`;
+            
+            drinkGrid.appendChild(drinkCard);
+        })
+        container.appendChild(drinkGrid);
+    }
 }
 
-testGetDrinkByIngredient();
+displayCategories();
