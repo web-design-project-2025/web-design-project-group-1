@@ -138,6 +138,7 @@ nav {
   font-size: 18px;
 }
 
+/* modal */
 .modal {
   display: none;
   position: fixed;
@@ -208,6 +209,7 @@ nav {
   clip-path: polygon(0 100%, 100% 0%, 100% 100%, 0% 100%);
 }
 
+/* animation when text open */
 @keyframes fadeIn {
   from {
     opacity: 0;
