@@ -7,71 +7,83 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Raleway:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="about.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us</title>
   </head>
   <body>
     <nav>
-      <div class="navLeft"><a herf="index.html">The Drink Lab</a></div>
+      <div class="navLeft"><a href="index.html">The Drink Lab</a></div>
       <div class="navRight">
-        <a herf="#"></a>
-        <a herf="#"></a>
-        <a herf="#"></a>
-        <a herf="about.html">About</a>
+        <a href="#">Categories</a>
+        <a href="#">Favourites</a>
+        <a href="about.html">About</a>
       </div>
     </nav>
 
-    <main>
+    <main class="aboutIntro">
+        <h1>Meet the Minds Behind the Mix</h1>
+        <p>
+          At The Drink Lab, we blend code with creativity to serve up a
+          one-of-a-kind recipe experience.
+        </p>
+      </section>
+
       <section class="teamSection">
-        <h2>Meet the Creators</h2>
         <div class="teamGrid">
           <div class="teamMember" onclick="openModal('modal1')">
-            <img src="k" alt="Paulina Dobek" />
+            <img src="images/paulina.jpg" alt="Paulina Dobek" />
+            <p>Paulina Dobek</p>
           </div>
           <div class="teamMember" onclick="openModal('modal2')">
-            <img src="k" alt="Henke" />
+            <img src="images/henke.jpg" alt="Henke" />
             <p>Henke</p>
           </div>
           <div class="teamMember" onclick="openModal('modal3')">
-            <img src="k" alt="Ludvig" />
+            <img src="images/ludvig.jpg" alt="Ludvig" />
             <p>Ludvig</p>
           </div>
         </div>
       </section>
+
       <!-- Modals -->
       <div class="modal" id="modal1" onclick="closeModal('modal1')">
-        <div class="" modalContent>
+        <div class="modalContent" onclick="event.stopPropagation()">
           <h3>Paulina Dobek</h3>
-          <p>Somethins somehing somehine</p>
+          <p><strong>Age:</strong> 21</p>
+          <p><strong>Role:</strong> UI/UX Designer</p>
+          <p><strong>Interests:</strong> Techno, running, reading</p>
         </div>
       </div>
       <div class="modal" id="modal2" onclick="closeModal('modal2')">
         <div class="modalContent">
           <h3>Henke</h3>
-          <p>Somethins somehing somehine</p>
+          <p>
+            Backend genius and logic master who keeps everything running
+            smoothly.
+          </p>
         </div>
       </div>
       <div class="modal" id="modal3" onclick="closeModal('modal3')">
-        <div class="" modalContent>
+        <div class="modalContent">
           <h3>Ludvig</h3>
-          <p>Somethins somehing somehine</p>
+          <p>
+            Database whisperer and speed optimizer with a flair for tech
+            innovation.
+          </p>
         </div>
       </div>
 
       <section class="whySection">
         <h2>Why We Created The Drink Lab</h2>
         <p>
-          We love greate drinks and wanted to make discovering them easier, more
-          fun, and more affordable. From brainstroming to coding sprints and
-          taste tests - this is our passion poured into a website.
+          Our mission was simple: bring the art of drink-making to your
+          fingertips with futuristic tools, recommendations, and live
+          pricing so you can mix smarter, not harder.
         </p>
       </section>
     </main>
-    <footer></footer>
     <script src="about.js"></script>
   </body>
 </html>
