@@ -94,11 +94,14 @@ nav {
 }
 
 .exploreButton {
+    width: 280px;
+    height: 30px;
+    align-content: center;
     background-color: var(--accentColor2);
-    border: none;
     color: var(--textColor);
     padding: 20px 32px;
     text-align: center;
+    text-decoration: none;
     border-radius: 40px;
     font-family: var(--ff);
     font-size: 25px;
@@ -139,12 +142,6 @@ nav {
 }
 
 @media (max-width: 1140px) {
-    /* h1 {
-        padding-top: 10px;
-        font-size: 60px;
-        line-height: 62px;
-    } */
-
     .heroSectionCardText {
         font-size: 20px;
         line-height: 32px;
@@ -159,12 +156,6 @@ nav {
     }
 
     @media (max-width: 1014px) {
-        /* h1 {
-            padding-top: 10px;
-            font-size: 45px;
-            line-height: 48px;
-        } */
-
         .heroSectionCardText {
             font-size: 18px;
             line-height: 28px;
@@ -247,4 +238,32 @@ nav {
 .drinkCard img {
     width: 100%; 
     height: auto;
+  
+/*Middle section on main page*/
+.companyDescription{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    align-content: center;
+}
+
+.descriptionCard{
+    background-color: var(--primaryColor);
+    padding: 35px;
+    border-radius: 25px;
+}
+
+.descriptionText{
+    text-align: center;
+    font-family: var(--ff);
+    font-size: 20px;
+    color: var(--textColor);
+}
+
+@media (max-width: 900px) {
+    .companyDescription{
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 3;
+    }
 }
