@@ -43,6 +43,11 @@ h3 {
     color: var(--textColor);
 }
 
+p {
+    font-family: var(--ff);
+    color: var(--textColor);
+}
+
 body {
     background-color: var(--bgColor);
 }
@@ -51,8 +56,8 @@ body {
     padding-top: 50px;
     display: grid;
     gap: 1rem;
-    grid-template-columns: 10% 40% 40% 10%;
-    grid-template-rows: 50vh 50vh;
+    grid-template-columns: 10% 20% 20% 20% 20% 10%;
+    grid-template-rows: 50vh 50vh 50vh;
 }
 
 /* Styling for nav bar */
@@ -110,7 +115,7 @@ nav {
 
 .heroSection {
     grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column-end: 6;
     display: flex;
     flex-direction: row;
 }
@@ -192,6 +197,48 @@ nav {
 
 }
 
+
+/* Styling for categories display */
+.drinkCategories {
+    grid-column: 2 / 6;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.drinkGrid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+    padding: 20px;
+    grid-column: 2 / 6;
+}
+
+.drinkCard {
+    background-color: var(--primaryColor);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    color: var(--textColor);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.categoryTitle {
+    grid-column: 2 / 6; 
+    text-align: center; 
+    margin-top: 2rem;
+    color: var(--textColor);
+}
+
+.drinkCard:hover {
+    transform: scale(1.05);
+}
+
+.drinkCard img {
+    width: 100%; 
+    height: auto;
+  
 /*Middle section on main page*/
 .companyDescription{
     grid-column-start: 2;
