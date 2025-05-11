@@ -347,22 +347,81 @@ nav {
   text-shadow: 0 0 5px var(--accentColor1);
 }
 
-/* favorite*/
-#favoritesToggle {
+/* Favorites panel styles */
+.favorites-panel {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 300px;
+  height: 100%;
+  background-color: #111;
+  color: white;
+  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.favorites-panel.open {
+  right: 0;
+}
+
+/* Favorites panel header styles */
+.favorites-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favorites-header h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* Close button styles for favorites */
+#closeFavorites {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Empty state message styles */
+.empty-message {
+  color: #bbb;
+  font-size: 0.95rem;
+  margin-top: 20px;
+}
+
+/* Favorite item styles */
+.favorite-item {
+  background-color: #222;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+/* Favorites toggle button styles */
+.favorites-toggle {
   background: none;
   border: none;
   cursor: pointer;
   transition: transform 0.2s ease, color 0.3s ease;
 }
 
-#favoritesToggle svg {
+.favorites-toggle svg {
   width: 42px;
-  height: 32px;
+  height: 42px;
   color: var(--accentColor2);
   transition: fill 0.3s ease;
 }
 
-#favoritesToggle:hover svg {
+.favorites-toggle:hover svg {
   color: var(--accentColor1);
   transform: scale(1.1);
 }

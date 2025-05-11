@@ -75,3 +75,27 @@ document
 function closeModal() {
   document.getElementById("thankYouModal").style.display = "none";
 }
+
+//favorite
+document.addEventListener("DOMContentLoaded", function () {
+  const favoritesToggle = document.getElementById("favoritesToggle");
+  const favoritesPanel = document.getElementById("favoritesPanel");
+  const closeFavorites = document.getElementById("closeFavorites");
+
+  // Toggle favorite panel visibility
+  favoritesToggle.addEventListener("click", () => {
+    if (
+      favoritesPanel.style.display === "none" ||
+      favoritesPanel.style.display === ""
+    ) {
+      favoritesPanel.style.display = "block";
+    } else {
+      favoritesPanel.style.display = "none";
+    }
+  });
+
+  // Close the favorites panel when close button is clicked
+  closeFavorites.addEventListener("click", () => {
+    favoritesPanel.style.display = "none"; // Hide the panel
+  });
+});

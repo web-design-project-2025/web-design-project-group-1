@@ -22,7 +22,11 @@
         <a href="categories.html">Categories</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact Us</a>
-        <button id="favoritesToggle" aria-label="View favorites">
+        <button
+          id="favoritesToggle"
+          class="favorites-toggle"
+          aria-label="View favorites"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -33,7 +37,7 @@
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M11.049 2.927C9.57 1.14 7.248 1.297 5.901 2.648c-1.69 1.413-1.995 3.87-1.029 5.7L12 21l7.128-12.652c.966-1.83.66-4.287-1.03-5.7-1.347-1.35-3.669-1.508-5.148-.721a4.285 4.285 0 0 0-.911.902C12.003 3.266 11.049 2.927 11.049 2.927z"
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
             />
           </svg>
         </button>
@@ -86,6 +90,15 @@
         </div>
       </div>
     </footer>
+    <div id="favoritesPanel" class="favorites-panel">
+      <div class="favorites-header">
+        <h3>Your Favorite Drinks</h3>
+        <button id="closeFavorites" aria-label="Close">&times;</button>
+      </div>
+      <div id="favoritesList" class="favorites-list">
+        <p class="empty-message">You haven't saved any drinks yet.</p>
+      </div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
