@@ -196,6 +196,12 @@ nav {
   }
 }
 
+/* Styling for drink detail page*/
+
+.drinkDetailContainer{
+  
+}
+
 /* Styling for categories display */
 .drinkCategories {
   grid-column: 2 / 6;
