@@ -15,14 +15,28 @@
         <a href="about.html">About</a>
       </div>
     </nav>
-    <main class="drinkDetailContainer">
-      <h1 id="drinkName"></h1>
-      <img id="drinkThumb" />
-      <h2>Ingredients</h2>
-      <ul id="ingredientsList"></ul>
-      <h2>Instructions</h2>
-      <p id="instructions"></p>
+    <main class="drinkDetailContainer">>
+        <h1 id="drinkName"></h1>
+        <div class="drinkDetailContent">
+          <img id="drinkThumb" />
+          <div class="drinkInfo">
+            <div class="drinkIngredients">
+              <h2>Ingredients</h2>
+              <ul id="ingredientsList"></ul>
+            </div>  
+            <div class="drinkInstructions">
+              <h2>Instructions</h2>
+              <p id="instructions"></p>
+            </div>
+            <div class="addToFavoritesContainer">
+              <button id="addToFavorites" class="addToFavoritesButton"> 
+                Add Drink to Favorites
+              </button>
+            </div>
+          </div>
+        </div>
     </main>
+
     <footer class="siteFooter">
       <div class="footerContent">
         <p>© 2025 The Drink Lab. All rights reserved.</p>

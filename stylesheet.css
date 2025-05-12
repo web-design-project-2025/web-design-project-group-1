@@ -213,13 +213,103 @@ nav {
   padding: 2rem;
   color: var(--textColor);
   font-family: var(--ff);
+
+  margin: 20px;
+
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.drinkDetailContainer h1 {
+  text-align: center;
+  color: var(--accentColor2);
+  text-shadow: 0 0 0px var(--accentColor2), 0 0 15px var(--accentColor2);
+}
+
+.drinkDetailContainer h2 {
+  text-align: center;
+  color: var(--textColor);
+  text-shadow: 0 0 0px var(--textColor), 0 0 15px var(--textColor);
 }
 
 .drinkDetailContainer img {
-  max-width: 300px;
-  border-radius: 10px;
+  max-width: 90%;
+  border-radius: 20px;
   margin-bottom: 1rem;
+  
+  box-shadow: 0 0 0 var(--primaryColor), 0 0 15px var(--primaryColor);
+  border: var(--primaryColor) solid 3px;
 }
+
+.drinkDetailContent {
+  display: flex;
+  flex-direction: table-row;
+
+  justify-content: center;
+
+  gap: 2rem;
+}
+
+.drinkInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  border-radius: 20px;
+
+  max-width: 30%;
+}
+
+.drinkInstructions {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--primaryColor);
+  border-radius: 20px;
+}
+
+.drinkIngredients {
+  width: 100%;
+  padding: 1rem;
+  padding-left: 2rem;
+  background-color: var(--primaryColor);
+  border-radius: 20px;
+}
+
+.addToFavoritesButton {
+  background-color: var(--accentColor1);
+  color: var(--textColor);
+  padding: 20px 32px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 40px;
+  font-family: var(--ff);
+  font-size: 25px;
+
+  margin-top: 60px;
+  margin-left: 20px;
+  box-sizing: content-box;
+
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+.addToFavoritesButton:hover {
+  box-shadow: 0 0 10px var(--accentColor1), 0 0 15px var(--accentColor1);
+}
+
+@media (max-width: 1100px) {
+  .drinkDetailContent {
+    flex-direction: column;
+    align-items: center;  
+  }
+  .drinkInfo {
+    max-width: 100%;
+  }
+  .drinkDetailContainer {
+    padding: 1rem;
+  }
+}
+
 
 /* Random Drink Section */
 .randomDrinks {
