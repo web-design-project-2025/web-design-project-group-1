@@ -2,6 +2,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
@@ -56,14 +57,14 @@ body {
   display: grid;
   gap: 1rem;
   grid-template-columns: 10% 20% 20% 20% 20% 10%;
-  grid-template-rows: 50vh 50vh 50vh;
+  grid-template-rows: 50vh 50vh;
 }
 
 /* Styling for nav bar */
 /* The classes in the nav are seperated to left and right with justify-content: space-between */
 nav {
   background-color: var(--primaryColor);
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -89,7 +90,9 @@ nav {
 /* Hero section main page */
 
 .heroSectionCardText {
-  width: 32vw;
+  width: 90%;
+  font-size: 25px;
+  margin-top: 10px;
 }
 
 .exploreButton {
@@ -104,8 +107,13 @@ nav {
   border-radius: 40px;
   font-family: var(--ff);
   font-size: 25px;
+
   margin-top: 60px;
   margin-left: 20px;
+  box-sizing: content-box;
+
+  text-shadow: 0 0 3px var(--textColor), 0 0 20px var(--textColor);
+
 }
 
 .exploreButton:hover {
@@ -125,6 +133,8 @@ nav {
   background-color: var(--primaryColor);
   display: flex;
   flex-direction: column;
+  border: var(--accentColor1) solid 1px;
+  box-shadow: 0 0 0 var(--accentColor1), 0 0 10px var(--accentColor1);
 }
 
 .imageContainer {
@@ -196,6 +206,23 @@ nav {
   }
 }
 
+/* Random Drink Section */
+.randomDrinks {
+  grid-column: 2 / 6;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.randomDrinkTitle {
+  grid-column: 2 / 6;
+  text-align: center;
+  color: var(--textColor);
+  text-shadow: 0 0 0px var(--textColor), 0 0 15px var(--textColor);
+  font-size: 40px;
+  padding-bottom: 40px;
+}
+
 /* Styling for categories display */
 .drinkCategories {
   grid-column: 2 / 6;
@@ -206,7 +233,7 @@ nav {
 
 .drinkGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1rem;
   padding: 20px;
   grid-column: 2 / 6;
@@ -218,8 +245,12 @@ nav {
   overflow: hidden;
   text-align: center;
   color: var(--textColor);
+  font-family: var(--ff);
+  font-size: 16px;
   transition: transform 0.3s;
   cursor: pointer;
+
+  border: var(--primaryColor) solid 2px;
 }
 
 .categoryTitle {
@@ -236,16 +267,18 @@ nav {
 .drinkCard img {
   width: 100%;
   height: auto;
-
+}
   /*Middle section on main page*/
   .companyDescription {
     grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column-end: 6;
     grid-row-start: 2;
     align-content: center;
   }
 
   .descriptionCard {
+    border: var(--accentColor2) solid 1px;
+    box-shadow: 0 0 0 var(--accentColor2), 0 0 10px var(--accentColor2);
     background-color: var(--primaryColor);
     padding: 35px;
     border-radius: 25px;
@@ -254,15 +287,15 @@ nav {
   .descriptionText {
     text-align: center;
     font-family: var(--ff);
-    font-size: 20px;
+    font-size: 14px;
     color: var(--textColor);
   }
 
   @media (max-width: 900px) {
     .companyDescription {
       grid-column-start: 2;
-      grid-column-end: 4;
-      grid-row-start: 3;
+      grid-column-end: 6;
+      grid-row-start: 2;
     }
   }
 
@@ -290,19 +323,19 @@ nav {
     transform: scale(1.08);
     transition: transform 0.3s ease;
   }
-}
 
 /* BACKGROUND VIDEO */
 #bgVideo {
   position: fixed;
   min-width: 110vw;
-  min-height: 50vh;
+  min-height: 100%;
   object-fit: cover;
   z-index: -2;
   filter: brightness(0.8) contrast(1.1);
 }
 
 /*footer*/
+
 .siteFooter {
   width: 100%;
   padding: 30px 20px;
@@ -312,6 +345,9 @@ nav {
   font-family: "Inter", sans-serif;
   text-align: center;
   position: relative;
+  margin-top: 50px;
+  bottom: 0;
+  left: 0;
   z-index: 2;
   backdrop-filter: blur(8px);
   box-shadow: 0 -2px 10px var(--accentColor1);
