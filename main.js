@@ -55,6 +55,9 @@ async function displayCategories() {
       drinkCard.classList.add("drinkCard");
       drinkCard.innerHTML = `<img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" />
             <p>${drink.strDrink}</p>`;
+      drinkCard.addEventListener('click', () => {
+        window.location.href = `drink.html?id=${drink.idDrink}`;
+      }) 
 
       drinkGrid.appendChild(drinkCard);
     });
