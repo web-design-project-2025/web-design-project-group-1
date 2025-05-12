@@ -2,6 +2,7 @@
 
 // Create an array for sorting into categories based in ingredients
 const alcoholCategories = ['Vodka', 'Rum', 'Tequila'];
+const randomDrinks = [];
 
 async function getDrinkByIngredient (ingredient) {
     // Guard clause warning if array is empty
@@ -60,4 +61,64 @@ async function displayCategories() {
     }
 }
 
+
+
+//fetch random drink
+async function getRandomDrinks(count = 10) {
+    // Builds API request with encodeURIComponent to protect from special characters or spaces
+    const endpoint = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+    const drinks = [];
+
+    // Error handling (network issue, invalid response etc.)
+    for (let i = 0; i < count; i++) {
+        try {
+            const res = await fetch(endpoint);
+            if(!res.ok) {
+                console.error(`Failed to fetch random drink: ${res.status}`);
+                continue;
+            }
+
+            // Pulls only the drinks property from the returned object from the API
+            const { drinks: fetchedDrinks } = await res.json();
+            if (Array.isArray(fetchedDrinks) && fetchedDrinks.length > 0) {
+                drinks.push(fetchedDrinks[0]);
+            }
+        } catch (err) {
+            console.error(`Unexpected error fetching drinks for "${drink}":`, err);
+            return [];
+        }
+    }
+
+    return drinks;
+}
+
+async function displayRandomDrinks () {
+    const container = document.querySelector('.randomDrinks');
+
+    const drinks = await getRandomDrinks();
+
+    const sectionHeader = document.createElement('h2');
+    sectionHeader.textContent = 'Discover Random Recipes';
+    sectionHeader.classList.add('randomDrinkTitle');
+    sectionHeader.style.gridColumn = '2 / 6';
+
+    container.appendChild(sectionHeader);
+
+    const drinkGrid = document.createElement('div');
+    drinkGrid.classList.add('drinkGrid');
+
+    drinks.forEach(drink => {
+        const drinkCard = document.createElement('div');
+        drinkCard.classList.add('drinkCard');
+        drinkCard.innerHTML = `<img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" />
+        <p>${drink.strDrink}</p>`;
+        
+        drinkGrid.appendChild(drinkCard);
+    });
+
+    container.appendChild(drinkGrid);
+}  
+
+
 displayCategories();
+displayRandomDrinks();
