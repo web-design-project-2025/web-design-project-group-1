@@ -26,6 +26,7 @@
           id="favoritesToggle"
           class="favorites-toggle"
           aria-label="View favorites"
+          onclick="window.location.href = 'favorites.html';"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -90,15 +91,6 @@
         </div>
       </div>
     </footer>
-    <div id="favoritesPanel" class="favorites-panel">
-      <div class="favorites-header">
-        <h3>Your Favorite Drinks</h3>
-        <button id="closeFavorites" aria-label="Close">&times;</button>
-      </div>
-      <div id="favoritesList" class="favorites-list">
-        <p class="empty-message">You haven't saved any drinks yet.</p>
-      </div>
-    </div>
     <script src="main.js"></script>
   </body>
 </html>

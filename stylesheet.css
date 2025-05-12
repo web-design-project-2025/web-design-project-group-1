@@ -351,7 +351,7 @@ nav {
 .favorites-panel {
   position: fixed;
   top: 0;
-  right: -400px;
+  left: 100%;
   width: 300px;
   height: 100%;
   background-color: #111;
@@ -381,8 +381,7 @@ nav {
   margin: 0;
 }
 
-/* Close button styles for favorites */
-#closeFavorites {
+#closeFavoritesPanel {
   background: none;
   border: none;
   color: white;
