@@ -199,7 +199,15 @@ nav {
 /* Styling for drink detail page*/
 
 .drinkDetailContainer{
-  
+  padding: 2rem;
+  color: var(--textColor);
+  font-family: var(--ff);
+}
+
+.drinkDetailContainer img {
+  max-width: 300px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
 }
 
 /* Styling for categories display */
