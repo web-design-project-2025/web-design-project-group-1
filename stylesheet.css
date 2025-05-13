@@ -436,12 +436,12 @@ nav {
   max-width: 700px;
   margin: auto;
   line-height: 1.6;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.05);
+  text-shadow: 0 0 6px var(--bgColor);
 }
 
 .drinkCard:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(0, 255, 195, 0.5), 0 0 10px rgba(255, 78, 155, 0.2);
+  box-shadow: 0 0 20px var(--accentColor1), var(--accentColor2);
 }
 
 .drinkCard img {
