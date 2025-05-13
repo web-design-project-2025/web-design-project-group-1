@@ -125,7 +125,7 @@ nav {
 }
 
 /* No Drinks Message */
-.noDrinksMessage {
+.emptyDrinksMessage {
   color: var(--accentColor2);
   font-size: 24px;
   font-weight: 600;
@@ -186,4 +186,18 @@ nav {
   to {
     background-position: 1000px 1000px;
   }
+}
+
+.addToFavoritesButton {
+  padding: 10px 20px;
+  background-color: #ff6f61; /* Color for the button */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.addToFavoritesButton:disabled {
+  background-color: #ddd; /* Light gray when disabled */
+  cursor: not-allowed;
 }
