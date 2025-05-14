@@ -65,11 +65,8 @@ async function displayCategories() {
   }
 }
 
-
-
-
 //fetch random drink
-async function getRandomDrinks(count = 10) {
+async function getRandomDrinks(count = 5) {
     // Builds API request with encodeURIComponent to protect from special characters or spaces
     const endpoint = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
     const drinks = [];

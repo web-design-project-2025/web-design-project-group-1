@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +13,7 @@
   --accentColor1: #00ebb2;
   --accentColor2: #e46d99;
   --ff: "Orbitron", sans-serif;
+  --lt: "Inter", sans-serif;
   --h1: bold max(40px, 5vw) / max(50px, 6vw) var(--ff);
   --h2: bold 36px/36px var(--ff);
   --h3: bold 20px/26px var(--ff);
@@ -27,7 +29,6 @@
 
 h1 {
   font: var(--h1);
-  padding-left: 25px;
   color: var(--textColor);
 }
 
@@ -44,7 +45,7 @@ h3 {
 }
 
 p {
-  font-family: var(--ff);
+  font-family: var(--lt);
   color: var(--textColor);
 }
 
@@ -53,22 +54,23 @@ body {
 }
 
 .gridContainer {
-  padding-top: 50px;
   display: grid;
-  gap: 1rem;
+  gap: 0rem;
   grid-template-columns: 10% 20% 20% 20% 20% 10%;
-  grid-template-rows: 50vh 50vh;
+  grid-template-rows: 60vh 30vh 50vh 20vh;
 }
 
 /* Styling for nav bar */
 /* The classes in the nav are seperated to left and right with justify-content: space-between */
 nav {
-  background-color: var(--primaryColor);
-  width: 100%;
+  background-color: rgba(5, 23, 33, 0.8); /* primary-color with opacity */
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: var(--ff);
+
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .navLeft a,
@@ -87,125 +89,264 @@ nav {
   background-color: var(--accentColor2);
 }
 
+@media (max-width: 680px) {
+  nav {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 602px) {
+  nav {
+  flex-direction: column;
+  padding-top: 3%;
+  padding-bottom: 1%;
+  }
+
+.navLeft a,
+  .navRight a {
+    padding: 3px;
+    font-size: 13px;
+  }
+}
+
 /* Hero section main page */
-
-.heroSectionCardText {
-  width: 90%;
-  font-size: 25px;
-  margin-top: 10px;
-}
-
-.exploreButton {
-  width: 280px;
-  height: 30px;
-  align-content: center;
-  background-color: var(--accentColor2);
-  color: var(--textColor);
-  padding: 20px 32px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 40px;
-  font-family: var(--ff);
-  font-size: 25px;
-
-  margin-top: 60px;
-  margin-left: 20px;
-  box-sizing: content-box;
-
-  text-shadow: 0 0 3px var(--textColor), 0 0 20px var(--textColor);
-
-}
-
-.exploreButton:hover {
-  background-color: #931b47;
-}
 
 .heroSection {
   grid-column-start: 2;
   grid-column-end: 6;
   display: flex;
-  flex-direction: row;
-}
-
-.mainCard {
-  width: 50%;
-  border-radius: 5%;
-  background-color: var(--primaryColor);
-  display: flex;
   flex-direction: column;
-  border: var(--accentColor1) solid 1px;
-  box-shadow: 0 0 0 var(--accentColor1), 0 0 10px var(--accentColor1);
-}
-
-.imageContainer {
-  height: 50vh;
-  width: 50%;
-  display: flex;
   justify-content: center;
-  align-items: center;
+  text-align: center;
+
+  margin: 0;
+  padding: 0;
 }
 
-.imageContainer > img {
-  width: 80%;
-  height: 70%;
+.introWelcome {
+  font-family: var(--ff);
+  font-size: 45px;
+  color: var(--accentColor2);
+
+  animation: fadeSlideDown 3s ease-out forwards;
 }
 
-@media (max-width: 1140px) {
-  .heroSectionCardText {
-    font-size: 20px;
-    line-height: 32px;
-  }
+.introTitle {
+  font-family: var(--ff);
+  font-size: 80px;
+  text-shadow: 0px 0px 0px var(--textColor), 0px 0px 15px var(--textColor);
 
-  .exploreButton {
-    padding: 15px 25px;
-    border-radius: 40px;
-    font-size: 20px;
-    margin-top: 55px;
-    margin-left: 30px;
-  }
+  animation: fadeSlideDown 3s ease-out forwards;
+}
 
-  @media (max-width: 1014px) {
-    .heroSectionCardText {
-      font-size: 18px;
-      line-height: 28px;
-      padding-top: 10px;
-    }
-  }
+/* BACKGROUND VIDEO */
+#bgVideo {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.8) contrast(1.1);
+}
 
-  /* Layers the logo image and card vertically */
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
   @media (max-width: 900px) {
     .heroSection {
       flex-direction: column;
       align-items: center;
     }
+    .introWelcome {
+      font-size: 30px;
+    }
+    .introTitle {
+      font-size: 50px;
+    }
+  }
 
-    .mainCard,
-    .imageContainer {
-      width: 100%;
-      padding: 10px;
-      align-items: center;
+/* Styling for intro-section */
+.backgroundTransition {
+  background: linear-gradient(
+    to top,
+    var(--primaryColor) 0%,
+    rgba(5, 23, 33, 1) 5%,
+    rgba(5, 23, 33, 0.9) 15%,
+    rgba(5, 23, 33, 0.7) 25%,
+    rgba(5, 23, 33, 0.4) 45%,
+    rgba(5, 23, 33, 0.2) 75%,
+    rgba(5, 23, 33, 0) 100%
+  );
+  position: relative;
+  z-index: 1; /* It appears above the video */
+
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 3;
+  grid-row-end: 2;
+}
+
+.companyIntroductionBackground{
+  background-color: var(--primaryColor);
+  overflow: hidden;
+  position: relative;
+
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.introWrapper {
+  grid-column-start: 2;
+  grid-column-end: 6;
+  grid-row-start: 3;
+  grid-row-end: 3;
+
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+}
+
+.introImage img{
+  width: 70%;
+  height: auto;
+  max-width: 1000px;
+  border-radius: 30px;
+  box-shadow: 0 0 0 var(black), 0 0 30px var(black);
+}
+
+.introImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.introText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 10px;
+  max-width: 50%;
+}
+
+.introTextTitle {
+  font-family: var(--ff);
+  font-size: 50px;
+  color: var(--accentColor1);
+  padding-bottom: 20px;
+  padding-left: 20px;
+
+  text-shadow: 0px 0px 0px var(--accentColor1), 0px 0px 10px var(--accentColor1);
+}
+
+.introTextBody {
+  font-family: var(--lt);
+  font-size: 20px;
+  color: var(--textColor);
+  padding: 20px;
+}
+
+.exploreButton {
+  width: 30%;
+  height: 50%;
+  align-content: center;
+  border: var(--textColor) solid 2px;
+  color: var(--textColor);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 40px;
+  font-family: var(--ff);
+  font-size: 16px;
+  box-sizing: content-box;
+
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.exploreButtonWrapper {
+  display: flex;
+  align-items: bottom;
+}
+
+.exploreButton:hover {
+  background-color: var(--textColor);
+  color: var(--primaryColor);
+}
+
+ @media (max-width: 910px) {
+
+    .gridContainer {
+    display: grid;
+    gap: 0rem;
+    grid-template-columns: 10% 20% 20% 20% 20% 10%;
+    grid-template-rows: 60vh 30vh 50vh 40vh 20vh;
+    }
+
+    .companyIntroductionBackground {
+      grid-column-start: 1;
+      grid-column-end: 7;
+      grid-row-start: 3;
+      grid-row-end: 5;
+    }
+
+    .introWrapper {
+      grid-column-start: 2;
+      grid-column-end: 6;
+      grid-row-start: 3;
+      grid-row-end: 5;
+
+      flex-direction: column-reverse;
+
+      padding-bottom: 10%;
+    }
+
+    .introText {
+      max-width: 100%;
+      padding: 0;
+
       text-align: center;
-      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20%;
     }
 
-    .heroSectionCardText {
-      width: 100%;
-      padding-left: 0px;
-      font-size: 20px;
+    .introTextTitle {
+      font-size: 40px;
+      padding-bottom: 20px;
     }
 
-    h1 {
-      padding-left: 0;
+    .exploreButtonWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .exploreButton {
-      margin-top: 70px;
-      margin-bottom: 30px;
-      margin-left: 0;
+      width: 100%;
+      height: 50%;
+      align-content: center;
+      border: var(--textColor) solid 2px;
+      color: var(--textColor);
+      padding: 15px 25px;
+
+      font-size: 20px;
     }
   }
-}
-
 
 /* Styling for drink detail page*/
 
@@ -224,18 +365,18 @@ nav {
 .drinkDetailContainer h1 {
   text-align: center;
   color: var(--accentColor2);
+  font-size: 50px;
   text-shadow: 0 0 0px var(--accentColor2), 0 0 15px var(--accentColor2);
 }
 
 .drinkDetailContainer h2 {
   text-align: center;
   color: var(--textColor);
-  text-shadow: 0 0 0px var(--textColor), 0 0 15px var(--textColor);
+  padding-bottom: 1rem;
 }
 
 .drinkDetailContainer img {
-  max-width: 90%;
-  border-radius: 20px;
+  max-width: 80%;
   margin-bottom: 1rem;
   
   box-shadow: 0 0 0 var(--primaryColor), 0 0 15px var(--primaryColor);
@@ -248,7 +389,7 @@ nav {
 
   justify-content: center;
 
-  gap: 2rem;
+  gap: 6rem;
 }
 
 .drinkInfo {
@@ -263,21 +404,21 @@ nav {
 
 .drinkInstructions {
   width: 100%;
-  padding: 1rem;
+  padding: 2rem;
   background-color: var(--primaryColor);
   border-radius: 20px;
 }
 
 .drinkIngredients {
   width: 100%;
-  padding: 1rem;
+  padding: 2rem;
   padding-left: 2rem;
   background-color: var(--primaryColor);
   border-radius: 20px;
 }
 
 .addToFavoritesButton {
-  background-color: var(--accentColor1);
+  background-color: var(--accentColor2);
   color: var(--textColor);
   padding: 20px 32px;
   text-align: center;
@@ -290,14 +431,19 @@ nav {
   margin-left: 20px;
   box-sizing: content-box;
 
-  transition: box-shadow 0.5s ease-in-out;
+  transition: box-shadow 0s ease-in-out;
 }
 
 .addToFavoritesButton:hover {
-  box-shadow: 0 0 10px var(--accentColor1), 0 0 15px var(--accentColor1);
+  box-shadow: 0 0 10px var(--accentColor2), 0 0 15px var(--accentColor2);
 }
 
-@media (max-width: 1100px) {
+.textBlock {
+  font-family: var(--lt);
+}
+
+
+@media (max-width: 1160px) {
   .drinkDetailContent {
     flex-direction: column;
     align-items: center;  
@@ -312,11 +458,57 @@ nav {
 
 
 /* Random Drink Section */
+
+.cantDecide {
+  grid-column: 1 / 7;
+  grid-row-start: 4;
+  grid-row-end: 4;
+
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+
+  background: linear-gradient(
+  to top,
+  rgba(5, 23, 33, 0) 0%,
+  rgba(5, 23, 33, 0.2) 25%,
+  rgba(5, 23, 33, 0.4) 55%,
+  rgba(5, 23, 33, 0.7) 75%,
+  rgba(5, 23, 33, 0.9) 85%,
+  rgba(5, 23, 33, 1) 95%,
+  var(--primaryColor) 100%
+);
+position: relative;
+z-index: 1;
+
+}
+
+.cantDecideText {
+  font-family: var(--ff);
+  font-size: 30px;
+  color: var(--accentColor2);
+  text-align: center;
+}
+
+ @media (max-width: 910px) {
+    .cantDecide {
+      grid-column: 1 / 7;
+      grid-row-start: 5;
+      grid-row-end: 5;
+    }
+  }
+
 .randomDrinks {
-  grid-column: 2 / 6;
+  grid-column-start: 2;
+  grid-column-end: 6;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .randomDrinkTitle {
@@ -373,36 +565,6 @@ nav {
   width: 100%;
   height: auto;
 }
-  /*Middle section on main page*/
-  .companyDescription {
-    grid-column-start: 2;
-    grid-column-end: 6;
-    grid-row-start: 2;
-    align-content: center;
-  }
-
-  .descriptionCard {
-    border: var(--accentColor2) solid 1px;
-    box-shadow: 0 0 0 var(--accentColor2), 0 0 10px var(--accentColor2);
-    background-color: var(--primaryColor);
-    padding: 35px;
-    border-radius: 25px;
-  }
-
-  .descriptionText {
-    text-align: center;
-    font-family: var(--ff);
-    font-size: 14px;
-    color: var(--textColor);
-  }
-
-  @media (max-width: 900px) {
-    .companyDescription {
-      grid-column-start: 2;
-      grid-column-end: 6;
-      grid-row-start: 2;
-    }
-  }
 
   @keyframes fadeInUp {
     from {
@@ -415,29 +577,15 @@ nav {
     }
   }
 
-  .heroSection,
-  .drinkCard,
-  .descriptionCard,
   .teamMember,
   .modalContent {
     animation: fadeInUp 1s ease both;
   }
 
-  .drinkCard:hover,
   .teamMember:hover {
     transform: scale(1.08);
     transition: transform 0.3s ease;
   }
-
-/* BACKGROUND VIDEO */
-#bgVideo {
-  position: fixed;
-  min-width: 110vw;
-  min-height: 100%;
-  object-fit: cover;
-  z-index: -2;
-  filter: brightness(0.8) contrast(1.1);
-}
 
 /*footer*/
 

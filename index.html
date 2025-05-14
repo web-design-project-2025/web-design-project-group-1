@@ -8,14 +8,15 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"/>
+
     <link rel="stylesheet" href="stylesheet.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <body>
-    <video autoplay muted loop id="bgVideo">
-      <source src="media/bg-loop.mp4" type="video/mp4" />
-    </video>
     <nav>
       <div class="navLeft"><a href="index.html">The Drink Lab</a></div>
       <div class="navRight">
@@ -45,44 +46,50 @@
       </div>
     </nav>
     <div class="siteWrapper">
-      
-    <main class="gridContainer">
-      <section class="heroSection">
-        <div class="mainCard">
-          <h1>
-            Welcome to <br />The <span style="color: #e46d99">Drink</span> Lab
-          </h1>
-          <h3 class="heroSectionCardText">
-            Discover new recipes and save your favorites with live
-            price-checking and updated recipes
-          </h3>
-          <a href="#" class="exploreButton">Explore all recipes</a>
-        </div>
-      </section>
-      <section class="companyDescription">
-        <div class="descriptionCard">
-          <p class="descriptionText">
-            Here on The Drink Lab, our goal is to gather all the recipes you
-            would ever need in one place. We provide
-            <span style="color: #00ebb2">easy-to-follow</span> instructions so
-            you can make your favorite drinks
-            <span style="color: #00ebb2">from scratch!</span> <br /><br />
-            Uncertain about the pricing of your favorite spirits or liqeuers?
-            Not to worry. With embedded links to each and every alcoholic
-            spirit, you are able to go directly to the suppliers website and
-            <span style="color: #00ebb2">keep track of the current prices</span>
-            with the ability to save your favorite drinks under the "favorites"
-            category, you can come back and check the recipes of your selected
-            drinks any time!
-            <br /><br />
-            Be sure to check out
-            <span style="color: #00ebb2">the most popular drinks</span> from
-            users down below and enjoy your stay here at
-            <span style="color: #e46d99">The Drink Lab</span>
-          </p>
-        </div>
-      </section>
-      
+      <main class="gridContainer">
+        <video autoplay muted loop id="bgVideo">
+        <source src="media/bg-loop.mp4" type="video/mp4" />
+        </video>
+
+        <section class="heroSection">
+            <div>
+              <h2 class="introWelcome">Welcome to</h2>
+            </div>
+            <div>
+              <h1 class="introTitle">The Drink Lab</h1>
+            </div>
+        </section>
+
+        <section class="backgroundTransition"></section>
+        <section class="companyIntroductionBackground"></section>
+
+        <section class="introWrapper">
+            <div class="introImage">
+              <img src="images/bartender-image.jpg" alt="Bartender shaking drink" />
+            </div>
+            <div class="introText">
+              <div>
+                <h2 class="introTextTitle"> Our Goal</h2>
+              </div>
+              <div>
+                <p class="introTextBody">
+                  Here at The Drink Lab, our mission is to make
+                  preparing drinks as easy and enjoyable as
+                  possible. Whether you're a cocktail connoisseur or just looking
+                  for something new, we've got you covered!
+                </p>
+              </div>
+              <div class="exploreButtonWrapper">
+                <a href="categories.html" class="exploreButton">Start Browsing. . .</a>
+              </div>
+            </div>
+          </section>
+
+        <section class="cantDecide">
+          <h2 class="cantDecideText"> Can't decide?</h2>
+        </section>
+    </div>
+
       <section class="randomDrinks"></section>
 
     </main>
