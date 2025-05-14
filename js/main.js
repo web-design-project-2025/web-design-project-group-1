@@ -39,7 +39,7 @@ async function displayCategories() {
 
   for (const category of alcoholCategories) {
     let drinks = [];
-
+    //Non-Alcoholic drinks uses different API endpoint, this solves this and displays it as another category
     if (category === "Non-Alcoholic") {
       const endpoint = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic";
       try {
