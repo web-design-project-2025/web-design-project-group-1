@@ -1,43 +1,43 @@
 //Function gets current favorite drink IDs from localStorage
-export function getFavorites () {
+export function getFavourites () {
     try {
-        const storedFavorites = localStorage.getItem('favoriteDrinks');
-        return storedFavorites ? JSON.parse(storedFavorites) : [];
+        const storedFavourites = localStorage.getItem('favouriteDrinks');
+        return storedFavourites ? JSON.parse(storedFavourites) : [];
     } catch (error) {
-        console.error("Couldn't read favorites from storage:", error);
+        console.error("Couldn't read favourites from storage:", error);
         return []; //Return empty array if an error occurs
     }
 }
 
-//Function saves a drink ID to favorites if return true, successfully added. 
-// False, already exists in favorites
-export function addToFavorites (drinkId) { 
-    const currentFavorites = getFavorites ();
+//Function saves a drink ID to favourites if return true, successfully added. 
+// False, already exists in favourites
+export function addToFavourites (drinkId) { 
+    const currentFavourites = getFavourites ();
     //Avoids any duplicate drink IDs
-    if (currentFavorites.includes(drinkId)) {
+    if (currentFavourites.includes(drinkId)) {
         return false;
     }
 
     //Add new favorite and save
-    const updatedFavorites = [... currentFavorites, drinkId];
-    localStorage.setItem('favoriteDrinks', JSON.stringify(updatedFavorites));
+    const updatedFavourites = [... currentFavourites, drinkId];
+    localStorage.setItem('favouriteDrinks', JSON.stringify(updatedFavourites));
     return true;
 }
 
-//Function removes a drink ID from favorites
-export function removeFromFavorites (drinkId) {
-    const currentFavorites = getFavorites();
-    const newFavorites = currentFavorites.filter(id => id !== drinkId);
+//Function removes a drink ID from favourites
+export function removeFromFavourites (drinkId) {
+    const currentFavourites = getFavourites();
+    const newFavourites = currentFavourites.filter(id => id !== drinkId);
 
     //Updates with new drink ID if something changed
-    if (newFavorites.length !== currentFavorites.length) {
-        localStorage.setItem ('favoriteDrinks', JSON.stringify(newFavorites));
+    if (newFavourites.length !== currentFavourites.length) {
+        localStorage.setItem ('favouriteDrinks', JSON.stringify(newFavourites));
         return true;
     }
     return false;
 }
 
-//Function checks if a drink is favorited
-export function isFavorited (drinkId) {
-    return getFavorites().includes(drinkId);
+//Function checks if a drink is favourited
+export function isFavourited (drinkId) {
+    return getFavourites().includes(drinkId);
 }

@@ -1,3 +1,5 @@
+import { addToFavourites, removeFromFavourites, isFavourited } from "./favourites";
+
 document.addEventListener('DOMContentLoaded', async () => {
     // Extracts query value and gets the id of selected drink
     const params = new URLSearchParams (window.location.search);
@@ -35,4 +37,31 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     document.getElementById('instructions').textContent = drink.strInstructions;
+
+    const favouriteButton = document.createElement('button');
+    favouriteButton.id = 'favouriteButton';
+    favouriteButton.classList.add('favouriteBtn');
+
+    updateFavouriteButtonText(favouriteButton, drinkId);
+
+    document.getElementById('drinkInfo').prepend(favouriteButton);
+
+    favouriteButton.addEventListener('click', () => {
+        toggleFavouriteStatus(drinkId, favouriteButton);
+    });
 });
+
+function updateFavouriteButtonText(button, drinkId) {
+    button.innerHTML = isFavourited(drinkId)
+        ? 'Remove from Favourites'
+        : 'Add to Favourites';
+}
+
+function toggleFavouriteStatus (drinkId, button) {
+    if (isFavourited(drinkId)) {
+        removeFromFavourites(drinkId);
+    } else {
+        addToFavourites(drinkId);
+    }
+    updateFavouriteButtonText(button, drinkId);
+}
