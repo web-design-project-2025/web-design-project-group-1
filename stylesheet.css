@@ -11,7 +11,7 @@
   --primaryColor: #051721;
   --textColor: #ffffff;
   --accentColor1: #00ebb2;
-  --accentColor2: #e46d99;
+  --accentColor2: #ff4e9b;
   --ff: "Orbitron", sans-serif;
   --lt: "Inter", sans-serif;
   --h1: bold max(40px, 5vw) / max(50px, 6vw) var(--ff);
@@ -62,11 +62,15 @@ body {
 
 /* Styling for nav bar */
 /* The classes in the nav are seperated to left and right with justify-content: space-between */
+
 nav {
-  background-color: rgba(5, 23, 33, 0.8); /* primary-color with opacity */
+  background-color: #0e1b2a;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 15px 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   font-family: var(--ff);
 
   padding-left: 5%;
@@ -76,27 +80,22 @@ nav {
 .navLeft a,
 .navRight a {
   color: var(--textColor);
+  padding: 10px;
   text-decoration: none;
-  padding: 20px;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 .navRight {
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 
 .navRight a:hover {
-  background-color: var(--accentColor2);
+  color: var(--accentColor1);
 }
 
-@media (max-width: 680px) {
-  nav {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-@media (max-width: 602px) {
+@media (max-width: 617px) {
   nav {
   flex-direction: column;
   padding-top: 3%;
@@ -106,7 +105,15 @@ nav {
 .navLeft a,
   .navRight a {
     padding: 3px;
-    font-size: 13px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 350px) {
+.navLeft a,
+  .navRight a {
+    padding: 3px;
+    font-size: 10px;
   }
 }
 
@@ -355,11 +362,14 @@ nav {
   color: var(--textColor);
   font-family: var(--ff);
 
-  margin: 20px;
-
   display: flex;
   gap: 1rem;
   flex-direction: column;
+
+  background: radial-gradient(circle at top, #0a0f1c 0%, #111e30 100%);
+  animation: fadeIn 1.5s ease-in-out;
+
+  padding-bottom: 100px;
 }
 
 .drinkDetailContainer h1 {
@@ -407,6 +417,9 @@ nav {
   padding: 2rem;
   background-color: var(--primaryColor);
   border-radius: 20px;
+
+  border: #0a0f1d solid 2px;
+  box-shadow: #0a0f1d 0 0 0px, #0a0f1d 0 0 15px;
 }
 
 .drinkIngredients {
@@ -415,6 +428,9 @@ nav {
   padding-left: 2rem;
   background-color: var(--primaryColor);
   border-radius: 20px;
+
+  border: #0a0f1d solid 2px;
+  box-shadow: #0a0f1d 0 0 0px, #0a0f1d 0 0 15px;
 }
 
 .addToFavoritesButton {
@@ -432,6 +448,8 @@ nav {
   box-sizing: content-box;
 
   transition: box-shadow 0s ease-in-out;
+
+  border: var(--accentColor2) solid 2px;
 }
 
 .addToFavoritesButton:hover {
@@ -509,6 +527,11 @@ z-index: 1;
 
   margin-left: 5%;
   margin-right: 5%;
+
+  justify-self: center;
+
+  
+  padding-bottom: 60px;
 }
 
 .randomDrinkTitle {
@@ -521,19 +544,113 @@ z-index: 1;
 }
 
 /* Styling for categories display */
+.categoriesBody {
+  background-color: #0a0f1c;
+}
+
+.categoriesHeader{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 40px;
+  text-align: center;
+
+  background: radial-gradient(circle at top, #0a0f1c 0%, #111e30 100%);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.categoryDivider {
+  border: 2px solid rgba(05, 17, 21, 0.6);
+  width: 50%;
+  align-self: center;
+
+  margin: 20px;
+}
+
+.categoriesHeader h1 {
+  font-family: var(--ff);
+  color: var(--accentColor2);
+  margin-top: 50px;
+  text-shadow: 0px 0px 0px var(--accentColor2), 0px 0px 15px var(--accentColor2);
+
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.categoriesHeader h3 {
+  margin: 30px;
+  padding: 20px;
+  font-family: var(--lt);
+  font-size: 110%;
+  font-weight: 600;
+  border-radius: 40px;
+  line-height: 150%;
+
+  border: #0a0f1d solid 2px;
+  box-shadow: #0a0f1d 0 0 0px, #0a0f1d 0 0 15px;
+  color: var(--textColor);
+
+  max-width: 800px;
+  align-self: center;
+
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
 .drinkCategories {
   grid-column: 2 / 6;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 2rem;
+  min-height: 100vh;
+
+  background-color: #111e30;
+  
+  animation: fadeIn 1.5s ease-out forwards;
+  
+  padding-bottom: 100px;
 }
 
 .drinkGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   padding: 20px;
-  grid-column: 2 / 6;
+  width: 100%;
+  max-width: 1200px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1199px) {
+  .drinkGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 899px) {
+  .drinkGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 599px) {
+  .drinkGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .categoriesHeader h3 {
+    font-size: 100%;
+  }
 }
 
 .drinkCard {
@@ -564,6 +681,27 @@ z-index: 1;
 .drinkCard img {
   width: 100%;
   height: auto;
+}
+
+.loadMoreBtn {
+  width: fit-content; 
+  margin: 0 auto 40px auto;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 40px;
+  font-family: var(--ff);
+
+  border: var(--textColor) solid 2px;
+  color: var(--textColor);
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3 ease, color 0.3, ease;
+}
+
+.loadMoreBtn:hover {
+  background-color: var(--textColor);
+  color: var(--primaryColor);
 }
 
   @keyframes fadeInUp {
@@ -598,7 +736,6 @@ z-index: 1;
   font-family: "Inter", sans-serif;
   text-align: center;
   position: relative;
-  margin-top: 50px;
   bottom: 0;
   left: 0;
   z-index: 2;

@@ -67,6 +67,10 @@ nav {
   align-items: center;
   padding: 15px 25px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  font-family: var(--ff);
+
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .navLeft a,
@@ -87,7 +91,28 @@ nav {
   color: var(--accentColor1);
 }
 
-/*first big text */
+@media (max-width: 617px) {
+  nav {
+  flex-direction: column;
+  padding-top: 3%;
+  padding-bottom: 1%;
+  }
+
+.navLeft a,
+  .navRight a {
+    padding: 3px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 350px) {
+.navLeft a,
+  .navRight a {
+    padding: 3px;
+    font-size: 10px;
+  }
+}
+
 .aboutIntro {
   text-align: center;
   padding: 120px 50px;
@@ -469,6 +494,8 @@ section p {
   font-family: "Inter", sans-serif;
   text-align: center;
   position: relative;
+  bottom: 0;
+  left: 0;
   z-index: 2;
   backdrop-filter: blur(8px);
   box-shadow: 0 -2px 10px var(--accentColor1);

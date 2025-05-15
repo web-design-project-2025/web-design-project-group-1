@@ -57,6 +57,13 @@ async function displayCategories() {
       drinks = await getDrinkByIngredient(category);
     }
 
+    // Divder line between categories
+    const categoryDivider = document.createElement("div");
+    categoryDivider.classList.add("categoryDivider");
+    categoryDivider.style.gridColumn = "2 / 6";
+
+    container.appendChild(categoryDivider);
+
     const categoryHeader = document.createElement("h2");
     categoryHeader.classList.add("categoryTitle");
     categoryHeader.textContent = category;
@@ -66,19 +73,45 @@ async function displayCategories() {
 
     const drinkGrid = document.createElement("div");
     drinkGrid.classList.add("drinkGrid");
+    drinkGrid.setAttribute("data-category", category);
 
-    drinks.slice(0, 8).forEach((drink) => {
-      const drinkCard = document.createElement("div");
-      drinkCard.classList.add("drinkCard");
-      drinkCard.innerHTML = '<img src="' + drink.strDrinkThumb + '"alt="' + drink.strDrink + '"/>' + `<p>${drink.strDrink} </p>`;
-            
-      drinkCard.addEventListener('click', function() {
-        window.location.href = `drink.html?id=${drink.idDrink}`;
-      }) 
-
-      drinkGrid.appendChild(drinkCard);
-    });
     container.appendChild(drinkGrid);
+
+    const loadMoreBtn = document.createElement("button");
+    loadMoreBtn.classList.add("loadMoreBtn");
+    loadMoreBtn.textContent = "Show More";
+    loadMoreBtn.style.gridColumn = "2/6";
+    loadMoreBtn.setAttribute("data-category", category);
+
+    let showingAllDrinks = false;
+
+    function renderDrinks () {
+      drinkGrid.innerHTML = "";
+      const drinksToShow = showingAllDrinks ? drinks: drinks.slice(0, 5);
+
+      drinksToShow.forEach (drink => {
+        const drinkCard = document.createElement ("div");
+        drinkCard.classList.add("drinkCard");
+        drinkCard.innerHTML = '<img src="' + drink.strDrinkThumb + '"alt="' + drink.strDrink + '"/>' + `<p>${drink.strDrink} </p>`;
+
+        drinkCard.addEventListener("click", () => {
+          window.location.href = `drink.html?id=${drink.idDrink}`;
+        });
+
+        drinkGrid.appendChild(drinkCard);
+      });
+
+      loadMoreBtn.style.display = drinks.length > 5 ? "block" : "none";
+      loadMoreBtn.textContent = showingAllDrinks ? "Show Less" : "Show More";
+    }
+
+    loadMoreBtn.addEventListener("click", () => {
+      showingAllDrinks = !showingAllDrinks;
+      renderDrinks();
+    });
+
+    renderDrinks();
+    container.appendChild(loadMoreBtn);
   }
 }
 
