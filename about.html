@@ -53,28 +53,26 @@
 
     <main class="aboutIntro">
       <section>
-        <h1>Meet the Minds Behind the Mix</h1>
-        <p>
-          At The Drink Lab, we blend code with creativity to serve up a
-          one-of-a-kind recipe experience.
-        </p>
+        <h1>Minds Behind the Mix</h1>
+        <p>The team that made this website possible</p>
+        <p>Get to know us maybe our favorite drinks...</p>
       </section>
 
       <section class="teamSection">
         <div class="teamGrid">
-          <div class="teamMember" onclick="openModal('modal1')">
+          <div class="teamMember" onclick="openModal('modal1','paulina')">
             <div class="teamMemberInner">
               <img src="images/paulina.jpg" alt="Paulina Dobek" />
               <p>Paulina Dobek</p>
             </div>
           </div>
-          <div class="teamMember" onclick="openModal('modal2')">
+          <div class="teamMember" onclick="openModal('modal2', 'henke')">
             <div class="teamMemberInner">
               <img src="images/henke.jpg" alt="Henke" />
               <p>Henke</p>
             </div>
           </div>
-          <div class="teamMember" onclick="openModal('modal3')">
+          <div class="teamMember" onclick="openModal('modal3', 'ludvig')">
             <div class="teamMemberInner">
               <img src="images/ludvig.jpg" alt="Ludvig" />
               <p>Ludvig</p>
@@ -86,28 +84,49 @@
       <!-- Modals -->
       <div class="modal" id="modal1" onclick="closeModal('modal1')">
         <div class="modalContent" onclick="event.stopPropagation()">
-          <h3>Paulina Dobek</h3>
-          <p><strong>Age:</strong> 21</p>
-          <p><strong>Role:</strong> UI/UX Designer</p>
-          <p><strong>Interests:</strong> Techno, running, reading</p>
+          <div class="favoriteDrinks">
+            <div class="modalText">
+              <h3>Paulina Dobek</h3>
+              <p><strong>Age:</strong> 21</p>
+              <p><strong>Role:</strong> UI/UX Designer</p>
+              <p><strong>Interests:</strong> Techno, running, reading</p>
+              <h4>Favorite Drink</h4>
+              <div class="drinkDetails">Loading favorite drink...</div>
+            </div>
+            <div class="modalImage"></div>
+          </div>
         </div>
       </div>
 
       <div class="modal" id="modal2" onclick="closeModal('modal2')">
         <div class="modalContent" onclick="event.stopPropagation()">
-          <h3>Henrik Lenning</h3>
-          <p><strong>Age:</strong> 23</p>
-          <p><strong>Role:</strong> Back-end developer</p>
-          <p><strong>Interests:</strong> Gaming, training, anime</p>
+          <div class="favoriteDrinks">
+            <div class="modalText">
+              <h3>Henrik Lenning</h3>
+              <p><strong>Age:</strong> 23</p>
+              <p><strong>Role:</strong> Back-end developer</p>
+              <p><strong>Interests:</strong> Gaming, training, anime</p>
+              <h4>Favorite Drink</h4>
+              <div class="drinkDetails">Loading favorite drink...</div>
+            </div>
+            <div class="modalImage"></div>
+          </div>
         </div>
       </div>
 
       <div class="modal" id="modal3" onclick="closeModal('modal3')">
         <div class="modalContent" onclick="event.stopPropagation()">
-          <h3>Ludvig Carlenberg</h3>
-          <p><strong>Age:</strong> 20</p>
-          <p><strong>Role:</strong> Front-end developer</p>
-          <p><strong>Interests:</strong> Music, Gamedesign, Programming</p>
+          <div class="favoriteDrinks">
+            <div class="modalText">
+              <h3>Ludvig Carlenberg</h3>
+              <p><strong>Age:</strong> 20</p>
+              <p><strong>Role:</strong> Front-end developer</p>
+              <p><strong>Interests:</strong> Music, Gamedesign, Programming</p>
+              <h4>Favorite Drink</h4>
+              <div class="drinkDetails">Loading favorite drink...</div>
+            </div>
+            <div class="modalImage"></div>
+          </div>
         </div>
       </div>
 
