@@ -524,16 +524,38 @@ z-index: 1;
 .drinkCategories {
   grid-column: 2 / 6;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 2rem;
+  min-height: 100vh;
 }
 
 .drinkGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   padding: 20px;
-  grid-column: 2 / 6;
+  width: 100%;
+  max-width: 1200px;
+}
+
+@media (max-width: 1199px) {
+  .drinkGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 899px) {
+  .drinkGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 599px) {
+  .drinkGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .drinkCard {
@@ -564,6 +586,22 @@ z-index: 1;
 .drinkCard img {
   width: 100%;
   height: auto;
+}
+
+.loadMoreBtn {
+  width: fit-content; 
+  margin: 0 auto 40px auto;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 40px;
+  font-family: var(--ff);
+
+  border: var(--textColor) solid 2px;
+  color: var(--textColor);
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3 ease, color 0.3, ease;
 }
 
   @keyframes fadeInUp {
