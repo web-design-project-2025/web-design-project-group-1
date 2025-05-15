@@ -2,14 +2,14 @@
 
 // Create an array for sorting into categories based in ingredients
 
-const alcoholCategories = ['Vodka', 'Rum', 'Tequila'];
+let alcoholCategories = ['Vodka', 'Gin', 'Rum', 'Tequila', 'Whiskey', 'Brandy', 'Cognac', 'Mezcal', 'Absinthe', 'Beer', 'Wine', 'Non-Alcoholic'];
 const randomDrinks = [];
 
 
 async function getDrinkByIngredient(ingredient) {
   // Guard clause warning if array is empty
   if (!ingredient) {
-    console.warn("No ingredient provided to getDrinkByIngredient");
+    console.warn("Missing ingredient, can't fetch drinks");
     return [];
   }
 
@@ -38,7 +38,24 @@ async function displayCategories() {
   const container = document.querySelector(".drinkCategories");
 
   for (const category of alcoholCategories) {
-    const drinks = await getDrinkByIngredient(category);
+    let drinks = [];
+    //Non-Alcoholic drinks uses different API endpoint, this solves this and displays it as another category
+    if (category === "Non-Alcoholic") {
+      const endpoint = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic";
+      try {
+        const res = await fetch(endpoint);
+        if (res.ok) {
+          const data = await res.json();
+          drinks = Array.isArray(data.drinks) ? data.drinks : [];
+        } else {
+          console.error (`Error fetching Non-Alcoholic drinks: ${res.status}`);
+        }
+      } catch (err) {
+        console.error ("Error fetching Non-Alcoholic drinks:", err);
+      }
+    } else {
+      drinks = await getDrinkByIngredient(category);
+    }
 
     const categoryHeader = document.createElement("h2");
     categoryHeader.classList.add("categoryTitle");
@@ -53,9 +70,9 @@ async function displayCategories() {
     drinks.slice(0, 8).forEach((drink) => {
       const drinkCard = document.createElement("div");
       drinkCard.classList.add("drinkCard");
-      drinkCard.innerHTML = `<img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" />
-            <p>${drink.strDrink}</p>`;
-      drinkCard.addEventListener('click', () => {
+      drinkCard.innerHTML = '<img src="' + drink.strDrinkThumb + '"alt="' + drink.strDrink + '"/>' + `<p>${drink.strDrink} </p>`;
+            
+      drinkCard.addEventListener('click', function() {
         window.location.href = `drink.html?id=${drink.idDrink}`;
       }) 
 
@@ -115,8 +132,7 @@ async function displayRandomDrinks () {
     drinks.forEach(drink => {
         const drinkCard = document.createElement('div');
         drinkCard.classList.add('drinkCard');
-        drinkCard.innerHTML = `<img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" />
-        <p>${drink.strDrink}</p>`;
+        drinkCard.innerHTML = '<img src="' + drink.strDrinkThumb + '"alt="' + drink.strDrink + '"/>' + `<p>${drink.strDrink} </p>`;
         
         drinkGrid.appendChild(drinkCard);
     });
