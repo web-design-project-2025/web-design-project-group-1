@@ -62,11 +62,15 @@ body {
 
 /* Styling for nav bar */
 /* The classes in the nav are seperated to left and right with justify-content: space-between */
+
 nav {
-  background-color: rgba(5, 23, 33, 0.8); /* primary-color with opacity */
+  background-color: #0e1b2a;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 15px 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   font-family: var(--ff);
 
   padding-left: 5%;
@@ -76,27 +80,22 @@ nav {
 .navLeft a,
 .navRight a {
   color: var(--textColor);
+  padding: 10px;
   text-decoration: none;
-  padding: 20px;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 .navRight {
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 
 .navRight a:hover {
-  background-color: var(--accentColor2);
+  color: var(--accentColor1);
 }
 
-@media (max-width: 680px) {
-  nav {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-@media (max-width: 602px) {
+@media (max-width: 617px) {
   nav {
   flex-direction: column;
   padding-top: 3%;
@@ -106,7 +105,15 @@ nav {
 .navLeft a,
   .navRight a {
     padding: 3px;
-    font-size: 13px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 350px) {
+.navLeft a,
+  .navRight a {
+    padding: 3px;
+    font-size: 10px;
   }
 }
 
