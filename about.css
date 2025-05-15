@@ -440,6 +440,15 @@ section p {
   border-radius: 4px;
 }
 
+/*images*/
+.styledImage {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  display: flex;
+}
+
 /*footer*/
 .siteFooter {
   width: 100%;
