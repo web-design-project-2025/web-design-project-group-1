@@ -1,5 +1,6 @@
 /* Font Import */
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
 /* Reset and Base Styles */
 * {
@@ -15,6 +16,7 @@
   --accentColor1: #00ffc3;
   --accentColor2: #ff4e9b;
   --ff: "Orbitron", sans-serif;
+  --lt: "Inter", sans-serif;
 }
 
 body {
@@ -87,8 +89,9 @@ nav {
   color: #d0d0d0;
   max-width: 800px;
   margin: auto;
-  line-height: 2;
+  line-height: 1;
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.05);
+  font-family: var(--lt);
 }
 
 .teamSection {
@@ -116,12 +119,21 @@ nav {
 
 .teamMember {
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.teamMemberInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50%;
+  padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .teamMember:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(255, 78, 155, 0.8), 0 0 15px rgba(0, 255, 195, 0.4);
+  transform: scale(1.3);
+  box-shadow: 0 0 50px rgba(255, 78, 155, 0.8), 0 0 20px rgba(0, 255, 195, 0.4);
 }
 
 .teamMember img {
@@ -130,12 +142,13 @@ nav {
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid var(--accentColor2);
-  margin-bottom: 10px;
 }
 
 .teamMember p {
   font-weight: bold;
   font-size: 18px;
+  margin-top: 12px;
+  color: white;
 }
 
 /* modal */
@@ -151,13 +164,11 @@ nav {
   justify-content: center;
   align-items: center;
   z-index: 999;
-  padding: 20px;
 }
 
 .modalContent {
-  background: rgba(14, 27, 42, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--primaryColor);
+  border: 1px solid var(--primaryColor);
   color: var(--textColor);
   padding: 40px;
   border-radius: 12px;
@@ -165,6 +176,7 @@ nav {
   max-width: 500px;
   box-shadow: 0 0 40px rgba(0, 255, 195, 0.4);
   animation: fadeIn 0.4s ease-in-out;
+  font-family: var(--lt);
 }
 
 .modalContent p {
@@ -177,36 +189,82 @@ nav {
   color: var(--accentColor1);
 }
 
-.whySection {
-  background-color: #111e30;
+/* Show modal class toggle */
+.modal.show {
+  display: flex;
+}
+
+/* Teamwork Section */
+.teamWork {
   padding: 100px 20px;
+  background: linear-gradient(to right, #111e30, #0a0f1c);
+  color: var(--textColor);
+  max-width: 900px;
+  margin: auto;
+  font-family: var(--lt);
+  font-size: 18px;
+  line-height: 1.7;
   text-align: center;
 }
 
-.whySection h2 {
+.teamWork h2 {
   font-size: 34px;
   margin-bottom: 25px;
   color: var(--accentColor2);
-  text-shadow: 0 0 10px var(--accentColor2);
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px var(--accentColor2), 0 0 20px var(--accentColor2);
+  font-family: var(--ff);
 }
 
-.whySection p {
-  font-size: 20px;
-  max-width: 700px;
-  margin: auto;
+.container {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.aboutIntro h1,
+section h2,
+section h3 {
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: var(--ff);
+}
+
+.aboutIntro p,
+section p {
+  font-family: var(--lt);
+  font-weight: 400;
+  font-size: 18px;
   line-height: 1.8;
-  color: #dcdcdc;
+  color: #cfd8dc;
+  margin-top: 15px;
 }
 
-.divider {
-  width: 100%;
-  height: 80px;
-  background: linear-gradient(
-    to right,
-    var(--accentColor2),
-    var(--accentColor1)
-  );
-  clip-path: polygon(0 100%, 100% 0%, 100% 100%, 0% 100%);
+.apiSection a {
+  color: var(--accentColor1);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+.apiSection a:hover {
+  border-color: var(--accentColor1);
+  color: var(--accentColor2);
+}
+
+@media (max-width: 600px) {
+  section {
+    padding: 30px 15px;
+  }
+  .aboutIntro h1 {
+    font-size: 36px;
+  }
+  section h2 {
+    font-size: 28px;
+  }
 }
 
 /* animation when text open */
@@ -334,4 +392,65 @@ nav {
 .footerLinks a:hover {
   color: var(--accentColor1);
   text-shadow: 0 0 5px var(--accentColor1);
+}
+
+/* new info section*/
+.infoSection {
+  padding: 80px 20px;
+  background: linear-gradient(to bottom, #0a0f1c, #111e30);
+  font-family: var(--lt);
+}
+
+.infoSection h2 {
+  font-size: 36px;
+  color: var(--accentColor2);
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 0 0 12px var(--accentColor2), 0 0 20px var(--accentColor2);
+}
+
+.infoSection p {
+  max-width: 900px;
+  margin: 0 auto 20px;
+  font-size: 18px;
+  color: #d0d0d0;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.infoSection .content,
+.infoSection .image {
+  max-width: 600px;
+  margin: auto;
+}
+
+.whySection,
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+}
+
+.whySection .content,
+.techStack .content {
+  flex: 1 1 400px;
+}
+
+.whySection .image img,
+.techStack .image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.apiSection p code {
+  color: var(--accentColor1);
+  font-family: monospace;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 6px;
+  border-radius: 4px;
 }
