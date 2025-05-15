@@ -9,8 +9,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // Sends request to API using the drink ID and recieves the data, converts into JS object
-    const res = await fetch (`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`);
-    const data = await res.json();
+    const data = await fetch (`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`)
+        .then(res => res.json())
+        .catch(err => console.log('API fetch failed'));
+
     // Gets first drink from API response
     const drink = data.drinks[0];
 
@@ -19,7 +21,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('drinkThumb').alt = drink.strDrink;
 
     const ingredientsList = document.getElementById('ingredientsList');
-    // Shows the ingrediensts for the drink
+    // This loop goes through each possible ingredient (up to 15)
+    // If ingredient exists, it adds it to the list, along with its measurements if available
     for (let i = 1; i <= 15; i++) {
         const ingredient = drink[`strIngredient${i}`];
         const measure = drink[`strMeasure${i}`];
