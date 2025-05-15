@@ -198,7 +198,7 @@ async function displayRandomDrinks() {
 displayCategories();
 displayRandomDrinks();
 
-//submission
+//submission of form
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contactForm");
   const thankYouModal = document.getElementById("thankYouModal");
@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Only try to animate if glitch element exists
+//glitch animation for the message submission
 const glitchElement = document.querySelector(".glitch");
 
 if (glitchElement) {
