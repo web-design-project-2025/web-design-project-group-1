@@ -1,3 +1,10 @@
+// Tutorial for understanding API implementation in Java:
+// https://www.youtube.com/watch?v=ziG9NCiE39Y
+//Refrence:
+// TheCocktailDB API Documentation:
+// https://www.thecocktaildb.com/api.php
+// Source of cocktail data and API endpoint details.
+
 const userFavoriteDrinks = {
   paulina: "Espresso martini",
   henke: "White Russian",
@@ -10,16 +17,13 @@ function openModal(modalId, user) {
   const drinkDetails = modalText.querySelector(".drinkDetails");
   const modalImage = modal.querySelector(".modalImage");
 
-  // Reset previous content
+  //making sure it resets previous content
   drinkDetails.textContent = "Loading favorite drink...";
   modalImage.innerHTML = "";
 
-  // Remove old button if exists
-  const oldButton = modalText.querySelector(".drinkLinkButton");
-  if (oldButton) oldButton.remove();
-
   modal.classList.add("show");
 
+  //if the drink is not found in the api
   const drinkName = userFavoriteDrinks[user];
   if (!drinkName) {
     drinkDetails.textContent = "No favorite drink found.";
@@ -43,13 +47,12 @@ function openModal(modalId, user) {
 
       const drink = data.drinks[0];
 
-      // Show drink name and instructions
+      //showing drink name and instructions
       drinkDetails.innerHTML = `
         <p><strong>${drink.strDrink}</strong></p>
         <p>${drink.strInstructions}</p>
       `;
 
-      // Add drink image
       if (drink.strDrinkThumb) {
         const img = document.createElement("img");
         img.src = drink.strDrinkThumb;
@@ -58,8 +61,7 @@ function openModal(modalId, user) {
         modalImage.appendChild(img);
       }
 
-      // Create the button linking to the cocktail page
-      // Create the button linking to your website's drink details page
+      //button linking to there own drink page
       const button = document.createElement("button");
       button.textContent = "View Full Recipe";
       button.className = "drinkLinkButton";
@@ -67,7 +69,7 @@ function openModal(modalId, user) {
         window.open(`drink.html?id=${drink.idDrink}`, "_blank"); // Opens in new tab
       };
 
-      // Append button to the modal text container
+      //append button
       modalText.appendChild(button);
     })
     .catch(() => {
