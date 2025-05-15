@@ -10,6 +10,11 @@
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+
     <title>About Us</title>
   </head>
   <body>
@@ -35,33 +40,42 @@
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
+                 C13.09 3.81 14.76 3 16.5 3
+                 19.58 3 22 5.42 22 8.5
+                 c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
             />
           </svg>
         </button>
       </div>
     </nav>
+
     <main class="aboutIntro">
-        <h1>Meet the Minds Behind the Mix</h1>
-        <p>
-          At The Drink Lab, we blend code with creativity to serve up a
-          one-of-a-kind recipe experience.
-        </p>
+      <section>
+        <h1>Minds Behind the Mix</h1>
+        <p class="subtext">Get to know us by clicking our image!</p>
       </section>
 
       <section class="teamSection">
         <div class="teamGrid">
-          <div class="teamMember" onclick="openModal('modal1')">
-            <img src="images/paulina.jpg" alt="Paulina Dobek" />
-            <p>Paulina Dobek</p>
+          <div class="teamMember" onclick="openModal('modal1','paulina')">
+            <div class="teamMemberInner">
+              <img src="images/paulina.jpg" alt="Paulina Dobek" />
+              <p>Paulina Dobek</p>
+            </div>
           </div>
-          <div class="teamMember" onclick="openModal('modal2')">
-            <img src="images/henke.jpg" alt="Henke" />
-            <p>Henke</p>
+          <div class="teamMember" onclick="openModal('modal2', 'henke')">
+            <div class="teamMemberInner">
+              <img src="images/henke.jpg" alt="Henrik Leening" />
+              <p>Henrik Föhrenbach Lenning</p>
+            </div>
           </div>
-          <div class="teamMember" onclick="openModal('modal3')">
-            <img src="images/ludvig.jpg" alt="Ludvig" />
-            <p>Ludvig</p>
+          <div class="teamMember" onclick="openModal('modal3', 'ludvig')">
+            <div class="teamMemberInner">
+              <img src="images/ludvig.jpg" alt="Ludvig Carlenberg" />
+              <p>Ludvig Carlenberg</p>
+            </div>
           </div>
         </div>
       </section>
@@ -69,42 +83,226 @@
       <!-- Modals -->
       <div class="modal" id="modal1" onclick="closeModal('modal1')">
         <div class="modalContent" onclick="event.stopPropagation()">
-          <h3>Paulina Dobek</h3>
-          <p><strong>Age:</strong> 21</p>
-          <p><strong>Role:</strong> UI/UX Designer</p>
-          <p><strong>Interests:</strong> Techno, running, reading</p>
-        </div>
-      </div>
-      <div class="modal" id="modal2" onclick="closeModal('modal2')">
-        <div class="modalContent">
-          <h3>Henrik Lenning</h3>
-          <p>
-            <p><strong>Age:</strong> 23</p>
-          <p><strong>Role:</strong> Back-end developer</p>
-          <p><strong>Interests:</strong> Gaming, training, anime</p>
-          </p>
-        </div>
-      </div>
-      <div class="modal" id="modal3" onclick="closeModal('modal3')">
-        <div class="modalContent">
-          <h3>Ludvig Carlenberg</h3>
-          <p>
-            <p><strong>Age:</strong> 20</p>
-          <p><strong>Role:</strong> Front-end developer</p>
-          <p><strong>Interests:</strong> Music, Gamedesign, Programming</p>
-          </p>
+          <div class="favoriteDrinks">
+            <div class="modalText">
+              <h3>Paulina Dobek</h3>
+              <p><strong>Age:</strong> 21</p>
+              <p><strong>Role:</strong> UI/UX Designer</p>
+              <p><strong>Interests:</strong> Techno, running, reading</p>
+              <h4>Favorite Drink</h4>
+              <div class="drinkDetails">Loading favorite drink...</div>
+            </div>
+            <div class="modalImage"></div>
+          </div>
         </div>
       </div>
 
-      <section class="whySection">
-        <h2>Why We Created The Drink Lab</h2>
+      <div class="modal" id="modal2" onclick="closeModal('modal2')">
+        <div class="modalContent" onclick="event.stopPropagation()">
+          <div class="favoriteDrinks">
+            <div class="modalText">
+              <h3>Henrik Föhrenbach Lenning</h3>
+              <p><strong>Age:</strong> 23</p>
+              <p><strong>Role:</strong> Back-end developer</p>
+              <p><strong>Interests:</strong> Gaming, training, anime</p>
+              <h4>Favorite Drink</h4>
+              <div class="drinkDetails">Loading favorite drink...</div>
+            </div>
+            <div class="modalImage"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="modal3" onclick="closeModal('modal3')">
+        <div class="modalContent" onclick="event.stopPropagation()">
+          <div class="favoriteDrinks">
+            <div class="modalText">
+              <h3>Ludvig Carlenberg</h3>
+              <p><strong>Age:</strong> 20</p>
+              <p><strong>Role:</strong> Front-end developer</p>
+              <p><strong>Interests:</strong> Music, Gamedesign, Programming</p>
+              <h4>Favorite Drink</h4>
+              <div class="drinkDetails">Loading favorite drink...</div>
+            </div>
+            <div class="modalImage"></div>
+          </div>
+        </div>
+      </div>
+
+      <section class="infoSection teamWork">
+        <h2>Collaboration & Teamwork</h2>
         <p>
-          Our mission was simple: bring the art of drink-making to your
-          fingertips with futuristic tools, recommendations, and live
-          pricing so you can mix smarter, not harder.
+          The Drink Lab started with a small team of inspiring graphic designers
+          who first met while juggling colorful post-it notes in class. Since
+          then, we grown into a close crew of designers, front-end developers,
+          and back-end experts who love collaborating, sharing ideas, and making
+          cool things happen together.
+        </p>
+        <p>
+          We keep things casual but focused, constantly improving the platform
+          by listening to user feedback and combining our unique skills to
+          create a smooth, enjoyable experience for everyone.
         </p>
       </section>
+
+      <section class="infoSection whySection">
+        <div class="content">
+          <h2>Why We Created The Drink Lab</h2>
+          <p>
+            We wanted to find an easy way to keep track of our favorite drink
+            recipes and ideas. So, why not make it accessible to everyone? We
+            aimed to create a place where finding drinks online is not a hassle
+            so having everything you need in one spot, simple and fun.
+          </p>
+
+          <h3>A Community for Creators</h3>
+          <p>
+            We also wanted to bring people together by making a space where you
+            can save your favorite drinks, get in touch with us, share your own
+            recipes, and just be part of a community that is all about enjoying
+            and creating better drinks. It is about connection, creativity, and
+            making the experience enjoyable for everyone.
+          </p>
+
+          <h3>Future Plans and Vision</h3>
+          <p>
+            Our site is always changing and growing. We are constantly working
+            on updates to make things better, smoother, and more personalized.
+            Our mission is simple: bring the art of drink-making to your
+            fingertips with smart tools, helpful recommendations so you can mix
+            smarter, not harder.
+          </p>
+        </div>
+        <div class="image">
+          <img
+            src="images/why-created.jpg"
+            alt="Creative cocktail making"
+            class="styledImage"
+          />
+        </div>
+      </section>
+
+      <section class="infoSection combinedTechApi">
+        <div class="image">
+          <img
+            src="images/tech-stack.jpg"
+            alt="Technology illustration"
+            class="styledImage"
+          />
+        </div>
+        <div class="contentWrapper">
+          <div class="content techStack">
+            <h2>Technology explained 101</h2>
+            <p>
+              The Drink Lab is built with modern web technologies to provide a
+              fast, responsive, and accessible user experience. We use HTML5,
+              CSS3, and JavaScript with a focus on clean code and performance
+              optimization.
+            </p>
+            <p>
+              The front-end is designed with usability and aesthetics in mind,
+              using custom CSS combined with Google Fonts and SVG icons for
+              sharp visuals. For future updates, we plan to integrate React.js
+              to enhance interactivity.
+            </p>
+            <p>
+              Data fetching and API communication rely on asynchronous
+              JavaScript (fetch API), allowing smooth loading of content without
+              page reloads. We deploy the site on reliable cloud hosting with
+              continuous integration workflows to ensure quick updates and high
+              availability.
+            </p>
+          </div>
+
+          <div class="content apiSection">
+            <h4>Powered by TheCocktailDB API</h4>
+            <p>
+              At the heart of The Drink Lab is the powerful
+              <a
+                href="https://www.thecocktaildb.com/api.php"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                TheCocktailDB API </a
+              >,a community-driven and openly accessible database packed with
+              thousands of cocktail recipes from all around the world.
+              Maintained by passionate cocktail lovers and developers, it keeps
+              the content fresh, diverse, and always growing.
+            </p>
+            <p>
+              Our platform currently uses the free version of TheCocktailDB API
+              to fetch detailed information about thousands of drinks which
+              including names, ingredient lists, preparation instructions,
+              images, and categories that all delivered in real-time. In the
+              future, we plan to upgrade to the premium version to unlock even
+              more features and provide an enhanced experience for our users.
+            </p>
+            <p>
+              One key endpoint we use, <code>filter.php</code>, allows filtering
+              cocktails by specific criteria like ingredients or drink
+              categories. This enables users to easily find recipes tailored to
+              their preferences or based on what they have at home.
+            </p>
+            <p>
+              By relying on TheCocktailDB API, we avoid the challenges of
+              maintaining a large database ourselves, allowing our team to focus
+              on delivering an engaging user experience, smooth navigation, and
+              innovative features.
+            </p>
+            <p></p>
+            <div class="apiFeatures">
+              <h4>Why This API Works for Us</h4>
+              <p>
+                TheCocktailDB is lightweight, well-documented, and incredibly
+                easy to implement—which makes it perfect for a fast-moving web
+                project like The Drink Lab. Its reliable structure and
+                standardized responses save time in development and ensure that
+                our features work smoothly across different pages and user
+                interactions.
+              </p>
+              <p>
+                We also value the open-source philosophy behind the API. It
+                encourages transparency, sharing, and continuous
+                improvement—values we also aim to reflect in the design and
+                function of our platform.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="infoSection designPhilosophy">
+        <div class="content">
+          <h2>Design Philosophy & User Experience</h2>
+          <p>
+            Our UI/UX philosophy is all about keeping things simple, clear, and
+            a little bit fun. We designed The Drink Lab to make exploring
+            cocktail recipes a smooth and enjoyable experience, whether you are
+            just starting out or you have been mixing drinks for years. Clean
+            lines, neon highlights, and intuitive navigation come together to
+            create a fresh, modern space where discovery feels effortless.
+          </p>
+          <p>
+            Key design features include easy navigation, responsive layouts for
+            mobile and desktop, and clear visual hierarchy. We also prioritize
+            accessibility by ensuring sufficient contrast and screen reader
+            support.
+          </p>
+          <p>
+            Interactive elements like modals and favorite toggles are designed
+            to enhance engagement without overwhelming users.
+          </p>
+        </div>
+        <div class="image">
+          <img
+            src="images/design.jpg"
+            alt="Design philosophy illustration"
+            class="styledImage"
+          />
+        </div>
+      </section>
     </main>
+
     <footer class="siteFooter">
       <div class="footerContent">
         <p>© 2025 The Drink Lab. All rights reserved.</p>
@@ -115,6 +313,7 @@
         </div>
       </div>
     </footer>
+
     <script src="js/about.js"></script>
   </body>
 </html>

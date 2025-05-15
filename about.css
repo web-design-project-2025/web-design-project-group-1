@@ -1,5 +1,16 @@
+/*
+References: 
+CSS Reset (Universal Selector *):
+   - "A Modern CSS Reset" by Andy Bell: https://piccalil.li/blog/a-modern-css-reset/
+   - MDN Reset Styles: https://developer.mozilla.org/en-US/docs/Web/CSS/All
+    Box-sizing Property:
+   - MDN Box Sizing: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+
+/*
+
 /* Font Import */
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
 /* Reset and Base Styles */
 * {
@@ -15,6 +26,14 @@
   --accentColor1: #00ffc3;
   --accentColor2: #ff4e9b;
   --ff: "Orbitron", sans-serif;
+  --lt: "Inter", sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 body {
@@ -39,6 +58,7 @@ body::before {
   z-index: -1;
 }
 
+/*navigation bar*/
 nav {
   background-color: var(--primaryColor);
   width: 100%;
@@ -95,31 +115,27 @@ nav {
 
 .aboutIntro {
   text-align: center;
-  padding: 120px 20px 60px;
-  background: radial-gradient(circle at top, #0a0f1c 0%, #111e30 100%);
+  padding: 120px 50px;
   animation: fadeIn 1.2s ease-in-out;
 }
 
 .aboutIntro h1 {
-  font-size: 50px;
+  font-size: 45px;
   color: var(--accentColor2);
-  letter-spacing: 3px;
   text-shadow: 0 0 12px var(--accentColor2), 0 0 20px var(--accentColor2);
   margin-bottom: 20px;
 }
 
-.aboutIntro p {
-  font-size: 20px;
-  color: #d0d0d0;
-  max-width: 800px;
-  margin: auto;
-  line-height: 2;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.05);
+.subtext {
+  color: white;
+  margin-top: 8px; /* space between heading and this text */
+  font-size: 1rem; /* adjust size if you want */
 }
 
+/*teamsection box*/
 .teamSection {
   padding: 100px 20px;
-  background: linear-gradient(to right, #0a0f1c, #111e30);
+  background: linear-gradient(#0a0f1c, #111e30, #0a0f1c);
   text-align: center;
 }
 
@@ -140,14 +156,14 @@ nav {
   justify-items: center;
 }
 
+/* making it smooth*/
 .teamMember {
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .teamMember:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(255, 78, 155, 0.8), 0 0 15px rgba(0, 255, 195, 0.4);
+  transform: scale(1.3);
 }
 
 .teamMember img {
@@ -156,15 +172,17 @@ nav {
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid var(--accentColor2);
-  margin-bottom: 10px;
+  box-shadow: 0 0 50px var(--accentColor2);
 }
 
 .teamMember p {
   font-weight: bold;
   font-size: 18px;
+  margin-top: 12px;
+  color: white;
 }
 
-/* modal */
+/* text inside each profile */
 .modal {
   display: none;
   position: fixed;
@@ -177,62 +195,182 @@ nav {
   justify-content: center;
   align-items: center;
   z-index: 999;
-  padding: 20px;
 }
 
 .modalContent {
-  background: rgba(14, 27, 42, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--primaryColor);
+  border: 1px solid var(--primaryColor);
   color: var(--textColor);
   padding: 40px;
   border-radius: 12px;
-  text-align: center;
-  max-width: 500px;
-  box-shadow: 0 0 40px rgba(0, 255, 195, 0.4);
+  max-width: 800px;
+  width: 90%;
   animation: fadeIn 0.4s ease-in-out;
+  font-family: var(--lt);
+  text-align: left;
 }
-
 .modalContent p {
-  margin: 10px 0;
+  margin: 18px 0;
   font-size: 18px;
   color: #dcdcdc;
 }
 
-.modalContent p strong {
-  color: var(--accentColor1);
+.modal.show {
+  display: flex;
 }
 
-.whySection {
-  background-color: #111e30;
+.favoriteDrinks {
+  display: flex;
+  gap: 40px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.favoriteDrinkImage {
+  max-width: 100%;
+  max-height: 500px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  object-fit: cover;
+}
+
+.modalText {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+}
+
+.modalText h4 {
+  color: var(--accentColor2);
+  margin-bottom: 20px;
+}
+
+.modalImage {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 250px;
+}
+
+.drinkLinkButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: black;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: var(--lt);
+}
+
+.drinkLinkButton:hover {
+  background-color: var(--accentColor2);
+}
+
+/* Teamwork Section text */
+.teamWork {
   padding: 100px 20px;
+  background: linear-gradient(#0a0f1c, #111e30, #0a0f1c);
   text-align: center;
 }
 
-.whySection h2 {
-  font-size: 34px;
+.teamWork h2 {
+  font-size: 15px;
   margin-bottom: 25px;
   color: var(--accentColor2);
-  text-shadow: 0 0 10px var(--accentColor2);
+  letter-spacing: 2px;
+  font-family: var(--lt);
 }
 
-.whySection p {
-  font-size: 20px;
-  max-width: 700px;
-  margin: auto;
+/*text underneath*/
+.section h2,
+section h3,
+section h4 {
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: var(--lt);
+  color: #00ffc3;
+}
+
+.aboutIntro p,
+section p {
+  font-family: var(--lt);
+  font-weight: 400;
+  font-size: 18px;
   line-height: 1.8;
-  color: #dcdcdc;
+  color: #cfd8dc;
+  margin-top: 15px;
 }
 
-.divider {
+/*tech*/
+
+.combinedTechApi {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.combinedTechApi .image {
+  flex: 0 0 40%;
+}
+
+.combinedTechApi .image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.combinedTechApi .contentWrapper {
+  flex: 1 1 60%;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: nowrap;
+  min-width: 300px;
+}
+
+.combinedTechApi .content {
+  flex: 1 1 50%;
+  min-width: 200px;
+}
+
+.combinedTechApi .content h2,
+.combinedTechApi .content h4 {
+  margin-top: 0;
+}
+
+.combinedTechApi p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/*last part of text*/
+.designPhilosophy {
+  display: flex;
+  gap: 40px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+
+.designPhilosophy .image {
+  flex: 1 1 40%;
+  max-width: 450px;
+}
+
+.designPhilosophy .image img {
   width: 100%;
-  height: 80px;
-  background: linear-gradient(
-    to right,
-    var(--accentColor2),
-    var(--accentColor1)
-  );
-  clip-path: polygon(0 100%, 100% 0%, 100% 100%, 0% 100%);
+  height: auto;
+  border-radius: 10px;
+}
+
+.designPhilosophy .content {
+  flex: 1 1 55%;
 }
 
 /* animation when text open */
@@ -256,47 +394,6 @@ nav {
   }
 }
 
-@keyframes glowPulse {
-  from {
-    text-shadow: 0 0 10px var(--accentColor1);
-  }
-  to {
-    text-shadow: 0 0 20px var(--accentColor1), 0 0 30px var(--accentColor1);
-  }
-}
-
-@keyframes glitchText {
-  0% {
-    transform: translate(0);
-    opacity: 1;
-  }
-  20% {
-    transform: translate(-2px, 2px);
-    opacity: 0.8;
-  }
-  40% {
-    transform: translate(2px, -1px);
-    opacity: 0.9;
-  }
-  60% {
-    transform: translate(-1px, 1px);
-    opacity: 0.95;
-  }
-  80% {
-    transform: translate(1px, -2px);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(0);
-    opacity: 1;
-  }
-}
-
-.modalContent h3,
-.modalContent p {
-  animation: glitchText 0.6s ease-in-out;
-}
-
 /* favorite*/
 #favoritesToggle {
   background: none;
@@ -315,6 +412,76 @@ nav {
 #favoritesToggle:hover svg {
   color: var(--accentColor1);
   transform: scale(1.1);
+}
+
+/* info section*/
+.infoSection {
+  padding: 80px 20px;
+  background: linear-gradient(to bottom, #0a0f1c, #111e30);
+  font-family: var(--lt);
+}
+
+/*collab teamwork*/
+.infoSection h2 {
+  font-size: 25px;
+  color: var(--accentColor1);
+  text-align: flex;
+  margin-bottom: 30px;
+}
+
+.infoSection p {
+  max-width: 900px;
+  margin: 0 auto 20px;
+  font-size: 18px;
+  color: #d0d0d0;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.infoSection .content,
+.infoSection .image {
+  max-width: 600px;
+  margin: auto;
+}
+
+.whySection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+}
+
+.whySection .content,
+.techStack .content {
+  flex: 1 1 400px;
+}
+
+.whySection .image img,
+.techStack .image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  display: flex;
+}
+
+.apiSection p code {
+  color: var(--accentColor1);
+  font-family: monospace;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/*images*/
+.styledImage {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  display: flex;
 }
 
 /*footer*/
@@ -362,4 +529,185 @@ nav {
 .footerLinks a:hover {
   color: var(--accentColor1);
   text-shadow: 0 0 5px var(--accentColor1);
+}
+
+/* Smaller devices (phones) */
+@media (max-width: 420px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+  }
+
+  .navLeft,
+  .navRight {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navRight {
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .navLeft a,
+  .navRight a {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+/* About intro: reduce padding and font size */
+@media (max-width: 420px) {
+  .aboutIntro {
+    padding: 60px 20px;
+  }
+
+  .aboutIntro h1 {
+    font-size: 28px;
+  }
+
+  .subtext {
+    font-size: 0.9rem;
+  }
+}
+
+/* Team section: single column grid, smaller gaps */
+@media (max-width: 420px) {
+  .teamSection {
+    padding: 60px 15px;
+  }
+
+  .teamGrid {
+    grid-template-columns: 1fr !important;
+    gap: 25px;
+  }
+
+  .teamMember img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .teamMember p {
+    font-size: 16px;
+  }
+}
+
+/* Modal: full width and height, with padding */
+@media (max-width: 420px) {
+  .modalContent {
+    width: 95%;
+    max-width: none;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  .favoriteDrinks {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .modalText,
+  .modalImage {
+    min-width: auto;
+    flex: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .modalImage {
+    justify-content: center !important;
+    margin-top: 20px;
+  }
+}
+
+/* Combined tech API: stack vertically */
+@media (max-width: 420px) {
+  .combinedTechApi {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .combinedTechApi .image,
+  .combinedTechApi .contentWrapper {
+    flex: none;
+    width: 100%;
+    min-width: auto;
+  }
+
+  .combinedTechApi .contentWrapper {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .combinedTechApi .content {
+    min-width: auto;
+  }
+}
+
+/* Design Philosophy: stack and reduce image size */
+@media (max-width: 420px) {
+  .designPhilosophy {
+    flex-direction: column;
+    padding: 20px 15px;
+  }
+
+  .designPhilosophy .image,
+  .designPhilosophy .content {
+    flex: none;
+    width: 100%;
+  }
+
+  .designPhilosophy .image img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Footer: center content, smaller padding */
+@media (max-width: 420px) {
+  .siteFooter {
+    padding: 20px 15px;
+    font-size: 14px;
+  }
+
+  .footerLinks {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Smaller modal for extra team info on small screens */
+@media (max-width: 420px) {
+  .teamExtraInfo,  /* or .modalContent if that’s your class */
+  .modalContent {
+    width: 90%; /* smaller width */
+    max-height: 70vh; /* limit height to 70% of viewport height */
+    padding: 15px 20px; /* comfortable padding */
+    font-size: 14px; /* smaller font */
+    overflow-y: auto; /* scroll if content is too tall */
+    border-radius: 10px;
+  }
+
+  .teamExtraInfo img,
+  .modalContent img {
+    max-width: 100px; /* smaller image */
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 8px;
+  }
+
+  .teamExtraInfo h2,
+  .modalContent h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .teamExtraInfo p,
+  .modalContent p {
+    font-size: 14px;
+    line-height: 1.3;
+  }
 }
