@@ -57,6 +57,13 @@ async function displayCategories() {
       drinks = await getDrinkByIngredient(category);
     }
 
+    // Divder line between categories
+    const categoryDivider = document.createElement("div");
+    categoryDivider.classList.add("categoryDivider");
+    categoryDivider.style.gridColumn = "2 / 6";
+
+    container.appendChild(categoryDivider);
+
     const categoryHeader = document.createElement("h2");
     categoryHeader.classList.add("categoryTitle");
     categoryHeader.textContent = category;
