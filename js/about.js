@@ -61,6 +61,9 @@ function openModal(modalId, user) {
         modalImage.appendChild(img);
       }
 
+      const existingButton = modalText.querySelector(".drinkLinkButton");
+      if (existingButton) existingButton.remove();
+
       //button linking to there own drink page
       const button = document.createElement("button");
       button.textContent = "View Full Recipe";

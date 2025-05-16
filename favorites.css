@@ -48,13 +48,14 @@ body::before {
 
 /* Navbar */
 nav {
-  background-color: var(--primaryColor);
+  background-color: #0e1b2a;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 25px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  font-family: var(--ff);
 
   padding-left: 5%;
   padding-right: 5%;
@@ -75,6 +76,15 @@ nav {
 }
 
 .navRight a:hover {
+  color: var(--accentColor1);
+}
+
+.navRight a[href="favorites.html"] {
+  color: var(--accentColor2);
+}
+
+.navRight a[href="favorites.html"]:hover {
+  transform: scale(1.2);
   color: var(--accentColor1);
 }
 
@@ -157,7 +167,7 @@ nav {
   background: var(--accentColor1);
   color: var(--accentColor2);
   transform: scale(1.15) rotate(10deg);
-  box-shadow: 0 4px 16px rgba(0,255,195,0.3);
+  box-shadow: 0 4px 16px rgba(0, 255, 195, 0.3);
 }
 
 @keyframes fadeIn {
@@ -246,5 +256,86 @@ nav {
   }
   to {
     background-position: 1000px 1000px;
+  }
+}
+
+/*mobile*/
+@media (max-width: 617px) {
+  nav {
+    flex-direction: column;
+    padding-top: 3%;
+    padding-bottom: 1%;
+  }
+
+  .navLeft a,
+  .navRight a {
+    padding: 3px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 350px) {
+  .navLeft a,
+  .navRight a {
+    padding: 3px;
+    font-size: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .aboutIntro {
+    padding: 80px 15px 40px;
+  }
+
+  .aboutIntro h1 {
+    font-size: 32px;
+    letter-spacing: 2px;
+  }
+
+  .aboutIntro p {
+    font-size: 16px;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalContent {
+    padding: 20px;
+    max-width: 90vw;
+    font-size: 14px;
+  }
+
+  .modalContent p,
+  .modalContent .longMessage {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footerContent {
+    padding: 0 10px;
+  }
+
+  .footerLinks {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .footerLinks a {
+    font-size: 12px;
+  }
+
+  .siteFooter {
+    padding: 15px 10px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalContent button {
+    font-size: 14px;
+    padding: 3px;
   }
 }
