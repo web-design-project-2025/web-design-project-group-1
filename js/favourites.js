@@ -96,7 +96,7 @@ function createDrinkCard (drink) {
             card.remove();
 
             if (getFavourites().length === 0) {
-                document.querySelector('.emptyFavouritesMessage').style.display = 'block';
+                document.querySelector('.emptyFavouriteMessage').style.display = 'block';
             }
         } else {
             window.location.href = `drink.html?id=${drink.idDrink}`;
