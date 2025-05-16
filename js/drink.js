@@ -1,7 +1,12 @@
+import { addToFavourites, removeFromFavourites, isFavourited } from "./favourites.js";
+
 document.addEventListener('DOMContentLoaded', async () => {
     // Extracts query value and gets the id of selected drink
     const params = new URLSearchParams (window.location.search);
     const drinkId = params.get ('id');
+
+    console.log('Script loaded');
+    console.log('Drink ID:', drinkId)
 
     if (!drinkId) {
         document.body.innerHTML = '<p>Drink could not be found. Try again later.</p>';
@@ -35,4 +40,35 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     document.getElementById('instructions').textContent = drink.strInstructions;
+
+    // Creates a button to add the drink to favourites
+    // and sets its initial state based on whether the drink is already favourited
+    const favouriteButton = document.createElement('button');
+    favouriteButton.id = 'favouriteButton';
+    favouriteButton.className = 'addToFavouritesBtn';
+
+    updateFavouriteButton(favouriteButton, drinkId);
+    // Adds the button to the container in the HTML
+    document.querySelector('.addToFavouritesContainer').appendChild(favouriteButton);
+    //Click event for removing or adding the drink to favourites
+    favouriteButton.addEventListener('click', () => {
+        toggleFavouriteStatus(drinkId, favouriteButton);
+    });
 });
+
+// Updates the button based on whether the drink is favourited
+function updateFavouriteButton(button, drinkId) {
+    button.textContent = isFavourited(drinkId)
+        ? 'Remove from Favourites'
+        : 'Add to Favourites';
+}
+
+// Toggles the favourite status of the drink and updates the button
+function toggleFavouriteStatus (drinkId, button) {
+    if (isFavourited(drinkId)) {
+        removeFromFavourites(drinkId);
+    } else {
+        addToFavourites(drinkId);
+    }
+    updateFavouriteButton(button, drinkId);
+}
