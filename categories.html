@@ -43,18 +43,28 @@
     </nav>
     <main class="categoriesWrapper">
       <section class="categoriesHeader">
-          <h1>
-            Explore by Category
-          </h1>
+        <h1>Explore by Category</h1>
 
-          <div class="seperationLine"></div>
+        <div class="seperationLine"></div>
 
-          <h3>
-            Here you can find all the recipes on The Drink Lab sorted into
-            categories based on alcohol type. For non-alcoholic drinks, scroll to the bottom!
-          </h3>
-        </div>
+        <h3>
+          Here you can find all the recipes on The Drink Lab sorted into
+          categories based on alcohol type. For non-alcoholic drinks, scroll to
+          the bottom!
+        </h3>
       </section>
+      <div
+        class="searchContainer"
+        style="grid-column: 2 / 6; margin-bottom: 20px"
+      >
+        <input
+          type="text"
+          id="drinkSearchInput"
+          placeholder="Search drinks by name..."
+          aria-label="Search drinks by name"
+          style="width: 100%; padding: 10px; font-size: 16px"
+        />
+      </div>
       <section class="drinkCategories"></section>
     </main>
     <footer class="siteFooter">
@@ -67,6 +77,5 @@
     </footer>
     <script src="js/main.js"></script>
     <button id="backToTop" title="Back to top">↑</button>
-
   </body>
 </html>

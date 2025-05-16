@@ -3,6 +3,9 @@
 // Create an array for sorting into categories based in ingredients
 // Reference for Back to Top button implementation with JavaScript:
 // https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+// Reference for search bar with API fetch in JavaScript:
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+// YouTube – JavaScript Search Bar Tutorial: https://www.youtube.com/watch?v=wxz5vJ1BWrc
 
 let alcoholCategories = [
   "Vodka",
@@ -192,10 +195,10 @@ async function displayRandomDrinks() {
       '"/>' +
       `<p>${drink.strDrink} </p>`;
 
-      // Adds event listener to each drink card making them lead to respective detail page
+    // Adds event listener to each drink card making them lead to respective detail page
     drinkCard.addEventListener("click", () => {
       window.location.href = `drink.html?id=${drink.idDrink}`;
-  });
+    });
 
     drinkGrid.appendChild(drinkCard);
   });
@@ -254,5 +257,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
   backToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("drinkSearchInput");
+
+  //search container
+  const searchContainer = document.querySelector(".searchContainer");
+  const errorMessage = document.createElement("p");
+  errorMessage.style.color = "red";
+  errorMessage.style.marginTop = "5px";
+  searchContainer.appendChild(errorMessage);
+
+  searchInput.addEventListener("keydown", async (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      const query = searchInput.value.trim();
+
+      if (!query) {
+        errorMessage.textContent = "Please enter a drink name to search.";
+        return;
+      }
+
+      //clearing error
+      errorMessage.textContent = "";
+
+      try {
+        const res = await fetch(
+          `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${encodeURIComponent(
+            query
+          )}`
+        );
+
+        if (!res.ok) {
+          errorMessage.textContent = "Error fetching data. Please try again.";
+          return;
+        }
+
+        const data = await res.json();
+
+        if (data.drinks && data.drinks.length > 0) {
+          //redricetly the macthing promot
+          const drinkId = data.drinks[0].idDrink;
+          window.location.href = `drink.html?id=${drinkId}`;
+        } else {
+          errorMessage.textContent = `Sorry, we don’t have "${query}" in our database.`;
+        }
+      } catch (err) {
+        console.error("Search error:", err);
+        errorMessage.textContent = "Unexpected error. Please try again later.";
+      }
+    }
   });
 });

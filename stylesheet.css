@@ -699,17 +699,6 @@ nav {
   color: var(--primaryColor);
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .teamMember,
 .modalContent {
   animation: fadeInUp 1s ease both;
@@ -869,4 +858,48 @@ nav {
 
 html {
   scroll-behavior: smooth;
+}
+
+/*serch container*/
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0;
+  width: 100%;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 1.5s ease-in forwards;
+}
+
+#drinkSearchInput {
+  width: 140px;
+  max-width: 90vw;
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.searchContainer p {
+  color: red;
+  margin-top: 6px;
+  font-size: 12px;
+  font-style: italic;
+  text-align: center;
+  min-height: 20px;
+  width: 100%;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
