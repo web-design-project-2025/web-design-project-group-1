@@ -432,7 +432,26 @@ nav {
   box-shadow: #0a0f1d 0 0 0px, #0a0f1d 0 0 15px;
 }
 
-.addToFavoritesButton {
+.addToFavouritesBtn2 {
+  background-color: #0a0f1c;
+  color: var(--accentColor2);
+  padding: 20px 32px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 40px;
+  font-family: var(--ff);
+  font-size: 25px;
+
+  margin-top: 60px;
+  margin-left: 20px;
+  box-sizing: content-box;
+
+  transition: box-shadow 0s ease-in-out;
+
+  border: var(--accentColor2) solid 2px;
+}
+
+.addToFavouritesBtn {
   background-color: var(--accentColor2);
   color: var(--textColor);
   padding: 20px 32px;
@@ -451,7 +470,11 @@ nav {
   border: var(--accentColor2) solid 2px;
 }
 
-.addToFavoritesButton:hover {
+.addToFavouritesBtn:hover {
+  box-shadow: 0 0 10px var(--accentColor2), 0 0 15px var(--accentColor2);
+}
+
+.addToFavouritesBtn2:hover {
   box-shadow: 0 0 10px var(--accentColor2), 0 0 15px var(--accentColor2);
 }
 

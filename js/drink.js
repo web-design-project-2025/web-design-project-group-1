@@ -67,8 +67,10 @@ function updateFavouriteButton(button, drinkId) {
 function toggleFavouriteStatus (drinkId, button) {
     if (isFavourited(drinkId)) {
         removeFromFavourites(drinkId);
+        favouriteButton.className = 'addToFavouritesBtn';
     } else {
         addToFavourites(drinkId);
+        favouriteButton.className = 'addToFavouritesBtn2';
     }
     updateFavouriteButton(button, drinkId);
 }
