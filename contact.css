@@ -15,6 +15,7 @@
   --accentColor1: #00ffc3;
   --accentColor2: #ff4e9b;
   --ff: "Orbitron", sans-serif;
+  --lt: "Inter", sans-serif;
 }
 
 body {
@@ -25,6 +26,11 @@ body {
   padding-bottom: 60px;
   position: relative;
   overflow-x: hidden;
+  padding: 0 10px;
+}
+
+.lower-text {
+  font-family: var(--lt);
 }
 
 body::before {
@@ -47,6 +53,9 @@ nav {
   align-items: center;
   padding: 15px 25px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .navLeft a,
@@ -67,11 +76,33 @@ nav {
   color: var(--accentColor1);
 }
 
+@media (max-width: 617px) {
+  nav {
+    flex-direction: column;
+    padding-top: 3%;
+    padding-bottom: 1%;
+  }
+
+  .navLeft a,
+  .navRight a {
+    padding: 3px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 350px) {
+  .navLeft a,
+  .navRight a {
+    padding: 3px;
+    font-size: 10px;
+  }
+}
+
+/* Main content */
 .aboutIntro {
   text-align: center;
   padding: 120px 20px 60px;
   background: radial-gradient(circle at top, #0a0f1c 0%, #111e30 100%);
-  animation: fadeIn 1.2s ease-in-out;
 }
 
 .aboutIntro h1 {
@@ -80,6 +111,7 @@ nav {
   letter-spacing: 3px;
   text-shadow: 0 0 12px var(--accentColor2), 0 0 20px var(--accentColor2);
   margin-bottom: 20px;
+  animation: fadeIn 1.2s ease-in-out;
 }
 
 .aboutIntro p {
@@ -88,23 +120,22 @@ nav {
   max-width: 900px;
   margin: auto;
   line-height: 1.5;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.05);
+  text-shadow: 0 0 6px var(--bgColor);
+  animation: fadeIn 1.2s ease-in-out;
 }
 
 .contactFormSection {
   background-color: #111e30;
   padding: 100px 20px;
   text-align: center;
-  animation: glowpulse 2s ease-in-out infinate alternate;
 }
 
 .contactForm {
-  background: rgba(14, 27, 42, 0.8);
+  background: var(--bgColor);
   padding: 40px;
   border-radius: 12px;
   max-width: 600px;
   margin: auto;
-  box-shadow: 0 0 30px rgba(0, 255, 195, 0.6);
 }
 
 .contactForm input,
@@ -117,7 +148,6 @@ nav {
   background-color: var(--primaryColor);
   color: var(--textColor);
   font-size: 16px;
-  box-shadow: 0 0 10px rgba(0, 255, 195, 0.2);
   transition: box-shadow 0.3s ease;
 }
 
@@ -127,24 +157,25 @@ nav {
 }
 
 .contactForm button {
-  background-color: var(--accentColor1);
+  background-color: var(--primaryColor);
   color: var(--textColor);
   padding: 15px 20px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 18px;
-  transition: background-color 0.3s ease, transform 0.2 ease;
+  transition: background-color 0.3s ease, transform 0.3s ease-in-out;
 }
 
 .contactForm button:hover {
   background-color: var(--accentColor2);
   transform: scale(1.1);
+  box-shadow: 0 0 12px var(--accentColor2);
 }
 
 /* Modal styles */
 .modal {
-  display: none;
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -156,10 +187,20 @@ nav {
   align-items: center;
   z-index: 999;
   padding: 20px;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .modalContent {
-  background: rgba(14, 27, 42, 0.6);
+  background: var(--bgColor);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--textColor);
@@ -167,20 +208,40 @@ nav {
   border-radius: 12px;
   text-align: center;
   max-width: 500px;
-  box-shadow: 0 0 40px rgba(0, 255, 195, 0.4);
   animation: fadeIn 0.4s ease-in-out, glitchText 1.5s infinite alternate;
 }
-
-.modalContent h3 {
-  font-size: 36px;
-  color: var(--accentColor1);
-  letter-spacing: 3px;
-  text-shadow: 0 0 12px var(--accentColor1), 0 0 20px var(--accentColor1);
+.modalContent button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
+  display: block;
 }
 
+.modalContent button:hover {
+  color: var(--accentColor2);
+}
 .modalContent p {
   font-size: 18px;
   color: #dcdcdc;
+}
+
+.modalContent .longMessage {
+  font-family: var(--lt);
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--textColor);
+}
+.modalContent button {
+  color: white;
+}
+.modalContent button:hover {
+  color: var(--accentColor2);
 }
 
 @keyframes fadeIn {
@@ -230,47 +291,41 @@ nav {
   0% {
     transform: translate(0);
     opacity: 1;
+    color: var(--accentColor1);
   }
   20% {
     transform: translate(-2px, 2px);
     opacity: 0.8;
+    color: var(--accentColor2);
   }
   40% {
     transform: translate(2px, -1px);
     opacity: 0.9;
-  }
-  60% {
-    transform: translate(-1px, 1px);
-    opacity: 0.95;
-  }
-  80% {
-    transform: translate(1px, -2px);
-    opacity: 1;
+    color: var(--accentColor1);
   }
   100% {
     transform: translate(0);
     opacity: 1;
+    color: var(--accentColor1);
   }
 }
 
-.modalContent button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  color: var(--accentColor1);
-  font-size: 20px;
-  cursor: pointer;
-  padding: 5px;
-  display: block;
+.glitch {
+  animation: glitchText 0.5s ease-in-out infinite;
+  animation-play-state: paused;
 }
 
-.modalContent button:hover {
-  color: var(--accentColor2);
+.glitch {
+  animation: glitchText 0.5s ease-in-out infinite;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-direction: normal;
+  animation-play-state: paused;
 }
 
-/*footer*/
+/* Footer */
 .siteFooter {
   width: 100%;
   padding: 30px 20px;
@@ -283,6 +338,7 @@ nav {
   z-index: 2;
   backdrop-filter: blur(8px);
   box-shadow: 0 -2px 10px var(--accentColor1);
+  margin-top: auto; /* Sticks the footer to the bottom */
 }
 
 .footerContent {
@@ -332,4 +388,87 @@ nav {
 #favoritesToggle:hover svg {
   color: var(--accentColor1);
   transform: scale(1.1);
+}
+
+/*mobile*/
+@media (max-width: 480px) {
+  .aboutIntro {
+    padding: 80px 15px 40px;
+  }
+
+  .aboutIntro h1 {
+    font-size: 32px; /* smaller but still impactful */
+    letter-spacing: 2px;
+  }
+
+  .aboutIntro p {
+    font-size: 16px;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    padding-top: 4%;
+    padding-bottom: 2%;
+  }
+
+  .navLeft a,
+  .navRight a {
+    padding: 6px 8px;
+    font-size: 14px;
+    display: block;
+    text-align: center;
+  }
+
+  .navRight {
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalContent {
+    padding: 20px;
+    max-width: 90vw;
+    font-size: 14px;
+  }
+
+  .modalContent p,
+  .modalContent .longMessage {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footerContent {
+    padding: 0 10px;
+  }
+
+  .footerLinks {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .footerLinks a {
+    font-size: 12px;
+  }
+
+  .siteFooter {
+    padding: 15px 10px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalContent button {
+    font-size: 14px;
+    padding: 3px;
+  }
 }
