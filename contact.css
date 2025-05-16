@@ -23,7 +23,6 @@ body {
   font-family: var(--ff);
   color: var(--textColor);
   line-height: 1.6;
-  padding-bottom: 60px;
   position: relative;
   overflow-x: hidden;
   padding: 0;
@@ -46,13 +45,14 @@ body::before {
 }
 
 nav {
-  background-color: var(--primaryColor);
+  background-color: #0e1b2a;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 25px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  font-family: var(--ff);
 
   padding-left: 5%;
   padding-right: 5%;
@@ -96,6 +96,15 @@ nav {
     padding: 3px;
     font-size: 10px;
   }
+}
+
+.navRight a[href="favorites.html"] {
+  color: var(--accentColor2);
+}
+
+.navRight a[href="favorites.html"]:hover {
+  transform: scale(1.2);
+  color: var(--accentColor1);
 }
 
 /* Main content */
@@ -405,29 +414,6 @@ nav {
     font-size: 16px;
     max-width: 100%;
     padding: 0 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  nav {
-    flex-direction: column;
-    padding-top: 4%;
-    padding-bottom: 2%;
-  }
-
-  .navLeft a,
-  .navRight a {
-    padding: 6px 8px;
-    font-size: 14px;
-    display: block;
-    text-align: center;
-  }
-
-  .navRight {
-    gap: 10px;
-    margin-top: 10px;
-    width: 100%;
-    justify-content: center;
   }
 }
 
