@@ -163,6 +163,7 @@ async function getRandomDrinks(count = 5) {
   return drinks;
 }
 
+// Function for displaying random drinks on the "home page"
 async function displayRandomDrinks() {
   const container = document.querySelector(".randomDrinks");
 
@@ -188,6 +189,11 @@ async function displayRandomDrinks() {
       drink.strDrink +
       '"/>' +
       `<p>${drink.strDrink} </p>`;
+
+      // Adds event listener to each drink card making them lead to respective detail page
+    drinkCard.addEventListener("click", () => {
+      window.location.href = `drink.html?id=${drink.idDrink}`;
+  });
 
     drinkGrid.appendChild(drinkCard);
   });
