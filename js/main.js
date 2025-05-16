@@ -1,6 +1,8 @@
 // Tutorial used for understanding API implementation https://www.youtube.com/watch?v=ziG9NCiE39Y
 
 // Create an array for sorting into categories based in ingredients
+// Reference for Back to Top button implementation with JavaScript:
+// https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
 
 let alcoholCategories = [
   "Vodka",
@@ -235,3 +237,22 @@ if (glitchElement) {
     }, 500);
   }, 3000);
 }
+
+// back to top button
+document.addEventListener("DOMContentLoaded", () => {
+  const backToTopBtn = document.getElementById("backToTop");
+
+  backToTopBtn.style.display = "none"; // Hide initially
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      backToTopBtn.style.display = "block";
+    } else {
+      backToTopBtn.style.display = "none";
+    }
+  });
+
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});

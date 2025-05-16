@@ -26,6 +26,7 @@ body {
   padding-bottom: 60px;
   position: relative;
   overflow-x: hidden;
+  padding: 0 10px;
 }
 
 .lower-text {
@@ -324,7 +325,7 @@ nav {
   animation-play-state: paused;
 }
 
-/*footer*/
+/* Footer */
 .siteFooter {
   width: 100%;
   padding: 30px 20px;
@@ -334,11 +335,10 @@ nav {
   font-family: "Inter", sans-serif;
   text-align: center;
   position: relative;
-  bottom: 0;
-  left: 0;
   z-index: 2;
   backdrop-filter: blur(8px);
   box-shadow: 0 -2px 10px var(--accentColor1);
+  margin-top: auto; /* Sticks the footer to the bottom */
 }
 
 .footerContent {
